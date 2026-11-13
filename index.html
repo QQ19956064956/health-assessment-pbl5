@@ -1,0 +1,1840 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="theme-color" content="#1c4e80">
+<title>陈老师的检查资料——从选择到判断｜《健康评估》项目五</title>
+<style>
+/* 《健康评估》项目五 · 教学网站 —— 清楚、专业的医疗教学风格 */
+:root{
+  --bg:#eef3f8; --card:#ffffff; --ink:#1b2b45; --ink2:#3d5575; --muted:#71829a;
+  --brand:#1c4e80; --brand2:#2f6fb5; --line:#d9e3ef; --soft:#f5f8fc;
+  --accent:#0d7a6f; --warn:#a9650a; --danger:#b3352c; --ok:#1c7a4a;
+  --radius:12px; --shadow:0 2px 14px rgba(28,78,128,.08);
+  --shadow-lg:0 12px 40px rgba(20,48,84,.22);
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink); font-size:15px; line-height:1.7;
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%}
+button,input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
+a{color:var(--brand2)}
+
+/* ---------------- 顶栏 ---------------- */
+.topbar{
+  position:sticky; top:0; z-index:40; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 1px 6px rgba(28,78,128,.05);
+}
+.topbar-in{
+  max-width:1120px; margin:auto; padding:10px 18px;
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;
+  display:grid;place-items:center;font-weight:700;font-size:15px;flex:none;letter-spacing:-1px;
+}
+.brand-txt{min-width:0}
+.brand-txt b{display:block;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-txt small{display:block;color:var(--muted);font-size:11px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar-meta{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chip{
+  display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;
+  background:var(--soft);border:1px solid var(--line);font-size:12px;color:var(--ink2);white-space:nowrap;
+}
+.chip strong{color:var(--brand);font-weight:700}
+.chip-count{background:#e7f0fb;border-color:#c7dcf3;color:var(--brand)}
+.chip-stu{background:#eef7f4;border-color:#cfe7dd;color:#0d6b55}
+
+/* ---------------- 布局 ---------------- */
+main{max-width:1120px;margin:0 auto;padding:22px 18px 70px}
+.view{display:none;animation:fade .22s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-bottom:16px}
+.card.tight{padding:16px}
+h1,h2,h3,h4{color:var(--brand);margin:0 0 12px;line-height:1.4}
+h1{font-size:25px;letter-spacing:.2px}
+h2{font-size:19px}
+h3{font-size:16px}
+h4{font-size:14px;margin-bottom:6px}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.tiny{font-size:12px}
+.center{text-align:center}
+.divider{height:1px;background:var(--line);margin:18px 0}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.row.end{justify-content:flex-end}
+.grow{flex:1;min-width:0}
+.pre{white-space:pre-wrap;word-break:break-word}
+
+/* ---------------- 按钮 ---------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 18px;border-radius:9px;border:1px solid var(--line);background:#fff;
+  color:var(--ink2);cursor:pointer;font-weight:600;font-size:14px;transition:.16s;
+  text-decoration:none;min-height:40px;
+}
+.btn:hover{border-color:var(--brand2);color:var(--brand);background:#f7fbff}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn-primary:hover{background:#163f68;border-color:#163f68;color:#fff}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-accent:hover{background:#0a655c;border-color:#0a655c;color:#fff}
+.btn-ghost{background:transparent;border-color:transparent;color:var(--brand2)}
+.btn-ghost:hover{background:#eef5fd;border-color:transparent}
+.btn-lg{padding:12px 26px;font-size:15px;min-height:46px}
+.btn:disabled,.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+.btn:disabled:hover{border-color:var(--line);color:var(--ink2);background:#fff}
+.btn-danger{color:var(--danger);border-color:#eecdc9}
+.btn-danger:hover{background:#fdf4f3;border-color:#e0aaa4;color:var(--danger)}
+.btn-sm{padding:5px 11px;min-height:32px;font-size:12.5px;border-radius:7px}
+
+/* ---------------- 表单 ---------------- */
+label.field{display:block;margin-bottom:16px}
+label.field > span.lbl{display:block;font-weight:600;margin-bottom:7px;font-size:14px;color:var(--ink2)}
+label.field > span.lbl .req{color:var(--danger);margin-left:3px}
+.hint{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+input[type=text],input[type=password],textarea,select{
+  width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;
+  background:#fff;outline:none;transition:.15s;line-height:1.6;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--brand2);box-shadow:0 0 0 3px rgba(47,111,181,.11)}
+textarea{resize:vertical;min-height:88px}
+textarea.short{min-height:70px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 16px}
+.radio-cards{display:flex;gap:10px;flex-wrap:wrap}
+.radio-card{
+  flex:1;min-width:110px;border:1px solid var(--line);border-radius:9px;padding:11px 14px;
+  cursor:pointer;background:#fff;text-align:center;font-weight:600;transition:.15s;
+}
+.radio-card:hover{border-color:var(--brand2)}
+.radio-card.on{background:#e9f2fc;border-color:var(--brand2);color:var(--brand)}
+.radio-card input{display:none}
+
+/* ---------------- 首页 ---------------- */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:stretch}
+.hero-img{border-radius:var(--radius);overflow:hidden;background:#dfe8f2;border:1px solid var(--line);min-height:280px}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-side{display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:12px;letter-spacing:2px;color:var(--brand2);font-weight:700;margin-bottom:10px}
+.callout{
+  background:#f2f7fd;border-left:4px solid var(--brand2);border-radius:0 8px 8px 0;
+  padding:12px 15px;font-size:14px;color:var(--ink2);margin:14px 0;line-height:1.75;
+}
+.callout.warn{background:#fdf7ec;border-left-color:var(--warn);color:#6f4a12}
+.callout.ok{background:#eff8f3;border-left-color:var(--accent);color:#0d5f4f}
+.note-strip{
+  background:#eaf1f9;border:1px solid #d3e2f2;border-radius:9px;padding:10px 14px;
+  font-size:12.5px;color:var(--ink2);margin-bottom:16px;
+}
+
+/* ---------------- 病例 ---------------- */
+.case-block{border-bottom:1px dashed var(--line);padding:12px 0}
+.case-block:last-child{border-bottom:none;padding-bottom:0}
+.case-block h4{color:var(--brand);margin-bottom:5px}
+.case-block ul{margin:0;padding-left:20px}
+.case-block li{margin:3px 0}
+.quote{font-style:normal;background:var(--soft);border-radius:8px;padding:10px 14px;color:var(--ink2)}
+
+/* ---------------- 资料卡 ---------------- */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cat-card{
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 15px 13px;
+  cursor:pointer;transition:.16s;text-align:left;min-height:110px;display:flex;flex-direction:column;
+  width:100%;
+}
+.cat-card:hover{border-color:var(--brand2);box-shadow:0 4px 14px rgba(28,78,128,.1);transform:translateY(-1px)}
+.cat-card .ic{width:30px;height:30px;border-radius:8px;background:#eaf2fb;color:var(--brand);display:grid;place-items:center;font-size:13px;font-weight:700;margin-bottom:9px}
+.cat-card b{font-size:14.5px;color:var(--ink);display:block;line-height:1.45}
+.cat-card .stage{font-size:12px;color:var(--muted);margin-top:4px}
+.cat-card .flag{font-size:11.5px;margin-top:auto;padding-top:9px;color:var(--accent);font-weight:600}
+.cat-card.read{border-color:#b9d8cd;background:#f8fcfa}
+.cat-card.locked{opacity:.55;cursor:not-allowed}
+.cat-card.locked:hover{transform:none;box-shadow:none;border-color:var(--line)}
+
+/* ---------------- 汇总 / 记录 ---------------- */
+.rec-item{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;background:#fff}
+.rec-item .rec-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.order-badge{width:24px;height:24px;border-radius:7px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex:none}
+.rec-item .kv{font-size:13.5px;margin:5px 0;color:var(--ink2)}
+.rec-item .kv b{color:var(--ink)}
+.rec-label{color:var(--muted);font-size:12px;display:inline-block;min-width:76px}
+.summary-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.summary-table th,.summary-table td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.summary-table th{background:var(--soft);color:var(--ink2);width:170px;font-weight:600}
+.empty{padding:26px;text-align:center;color:var(--muted);background:var(--soft);border-radius:9px;font-size:14px}
+
+/* ---------------- 弹窗 ---------------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(16,34,58,.52);z-index:60;
+  display:flex;align-items:flex-start;justify-content:center;padding:24px 14px;overflow-y:auto;
+}
+.overlay[hidden]{display:none}
+.modal{
+  background:#fff;border-radius:14px;box-shadow:var(--shadow-lg);width:min(920px,100%);
+  margin:auto 0;overflow:hidden;
+}
+.modal.narrow{width:min(560px,100%)}
+.modal-head{
+  padding:15px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;background:#fff;z-index:2;
+}
+.modal-head h3{margin:0;font-size:16px;flex:1;min-width:0}
+.modal-body{padding:20px}
+.modal-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;background:#fbfcfe}
+.icon-btn{border:none;background:var(--soft);width:32px;height:32px;border-radius:8px;cursor:pointer;color:var(--ink2);font-size:18px;line-height:1;flex:none}
+.icon-btn:hover{background:#e6eef8;color:var(--brand)}
+
+/* ---------------- 报告阅读 ---------------- */
+.report-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.report-meta .chip{white-space:normal;max-width:100%;line-height:1.5}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;font-size:13.5px;font-weight:600}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.report-figure{
+  background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;
+  margin-bottom:16px;min-height:120px;
+}
+.report-figure img{max-width:100%;width:auto;max-height:70vh;cursor:zoom-in;border-radius:6px;display:block;margin:auto;background:#fff}
+.zoom-tip{font-size:12px;color:var(--muted);margin-top:8px}
+.r-block{margin-bottom:14px}
+.r-title{font-size:17px;font-weight:700;color:var(--brand);text-align:center;margin-bottom:2px}
+.r-sub{text-align:center;color:var(--muted);font-size:12.5px;margin-bottom:14px}
+.r-kv{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 14px;font-size:13px;color:var(--ink2);margin-bottom:14px}
+.r-kv div{display:flex;gap:5px;border-bottom:1px dotted var(--line);padding:3px 0}
+.r-kv b{color:var(--muted);font-weight:400;min-width:62px;flex:none}
+.r-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}
+.r-table th,.r-table td{border:1px solid var(--line);padding:7px 9px;text-align:left}
+.r-table th{background:#eef4fb;color:var(--brand);font-weight:600}
+.r-table td.up{color:var(--danger);font-weight:700}
+.r-note{font-size:12.5px;color:var(--muted);background:var(--soft);border-radius:7px;padding:9px 12px;margin:8px 0}
+.r-plain{white-space:pre-wrap;font-size:13px;line-height:1.85;background:var(--soft);border-radius:8px;padding:14px;overflow-x:auto}
+.section-title{font-size:14px;font-weight:700;color:var(--brand);border-left:3px solid var(--brand2);padding-left:9px;margin:20px 0 10px}
+.locked-note{background:#f3f7fc;border:1px dashed #bfd4ea;border-radius:8px;padding:11px 14px;font-size:13px;color:var(--ink2)}
+.thinking{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.thinking span{background:#eef5fd;border:1px solid #d3e3f5;border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--brand)}
+
+/* ---------------- 图片放大 ---------------- */
+.lightbox{
+  position:fixed;inset:0;z-index:90;background:rgba(8,18,32,.94);display:flex;
+  align-items:center;justify-content:center;overflow:hidden;touch-action:none;
+}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:96vw;max-height:88vh;transform-origin:center center;will-change:transform;user-select:none;-webkit-user-drag:none}
+.lb-bar{position:absolute;top:0;left:0;right:0;padding:12px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;color:#fff;z-index:2}
+.lb-bar button{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px}
+.lb-tip{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:12px}
+
+/* ---------------- 阶段 / 进度 ---------------- */
+.steps{display:flex;gap:0;margin-bottom:18px;overflow-x:auto;padding-bottom:4px}
+.step{flex:1;min-width:96px;text-align:center;font-size:11.5px;color:var(--muted);position:relative;padding-top:20px;white-space:nowrap}
+.step:before{content:"";position:absolute;top:5px;left:0;right:0;height:2px;background:var(--line)}
+.step:after{content:"";position:absolute;top:1px;left:calc(50% - 5px);width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--line)}
+.step.done:after{background:var(--accent);border-color:var(--accent)}
+.step.done:before{background:#bcdcd1}
+.step.now{color:var(--brand);font-weight:700}
+.step.now:after{background:var(--brand);border-color:var(--brand)}
+.wait-box{text-align:center;padding:30px 20px;background:var(--soft);border:1px dashed #c4d7ea;border-radius:11px}
+.wait-box .pulse{width:44px;height:44px;border-radius:50%;background:#dcebf9;margin:0 auto 14px;display:grid;place-items:center;font-size:20px}
+
+/* ---------------- 教师端 ---------------- */
+.teacher-grid{display:grid;grid-template-columns:330px 1fr;gap:16px;align-items:start}
+.stu-list{max-height:640px;overflow-y:auto}
+.stu-item{border:1px solid var(--line);border-radius:9px;padding:11px 12px;margin-bottom:8px;cursor:pointer;background:#fff;transition:.14s}
+.stu-item:hover{border-color:var(--brand2)}
+.stu-item.on{border-color:var(--brand);background:#f2f8ff;box-shadow:inset 3px 0 0 var(--brand)}
+.stu-item b{font-size:14px}
+.stu-item .line{font-size:12px;color:var(--muted);margin-top:3px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:var(--soft);color:var(--ink2);border:1px solid var(--line)}
+.badge.ok{background:#eaf7f0;color:var(--ok);border-color:#c9e7d6}
+.badge.warn{background:#fdf5e7;color:var(--warn);border-color:#f0dcb8}
+.badge.info{background:#eaf2fc;color:var(--brand);border-color:#cfe0f4}
+.teacher-table{width:100%;border-collapse:collapse;font-size:13px}
+.teacher-table th,.teacher-table td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+.teacher-table th{background:var(--soft);color:var(--ink2);font-weight:600;white-space:nowrap}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.toolbar select,.toolbar input{width:auto;min-width:120px;font-size:13px;padding:7px 10px}
+.phase-btns{display:flex;gap:8px;flex-wrap:wrap}
+.phase-btn{flex:1;min-width:120px}
+.phase-btn.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.ai-box{background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:16px;white-space:pre-wrap;line-height:1.85;font-size:14px}
+.config-item{border:1px solid var(--line);border-radius:9px;padding:13px;margin-bottom:10px}
+.config-item h4{color:var(--brand);margin-bottom:8px}
+
+/* ---------------- 打印 / 其它 ---------------- */
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:120;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+.toast{background:#1b2b45;color:#fff;padding:10px 18px;border-radius:9px;font-size:13.5px;box-shadow:var(--shadow-lg);max-width:88vw}
+.toast.err{background:#a3332b}
+.toast.ok{background:#12694a}
+.spinner{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .teacher-grid{grid-template-columns:1fr}
+  .stu-list{max-height:320px}
+  .r-kv{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  body{font-size:14.5px}
+  main{padding:14px 12px 60px}
+  .card{padding:16px}
+  h1{font-size:21px} h2{font-size:17px}
+  .topbar-in{padding:9px 12px;gap:9px}
+  .brand-txt b{font-size:13.5px}
+  .brand-txt small{display:none}
+  .brand-mark{width:30px;height:30px;font-size:13px}
+  .topbar-meta{gap:5px}
+  .chip{font-size:11px;padding:3px 8px}
+  .cat-grid{grid-template-columns:1fr}
+  .cat-card{min-height:0}
+  .form-grid{grid-template-columns:1fr}
+  .modal-body{padding:15px}
+  .modal-head,.modal-foot{padding:12px 15px}
+  .overlay{padding:10px 8px}
+  .r-kv{grid-template-columns:1fr}
+  .r-table{font-size:12px}
+  .r-table th,.r-table td{padding:5px 6px}
+  .summary-table th{width:110px}
+  .btn-lg{width:100%}
+  .row > .btn{flex:1}
+}
+@media print{
+  .topbar,.btn,.no-print,.steps{display:none!important}
+  body{background:#fff}
+  main{padding:0;max-width:none}
+  .card{box-shadow:none;border:none;padding:0}
+}
+
+.offline-strip{background:#fff7e6;border-bottom:1px solid #f0c36d;color:#7a4b00;
+ font-size:12.5px;line-height:1.7;padding:9px 20px;text-align:center}
+.offline-strip b{color:#8a4b00}
+
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="brand-mark">HA</div>
+      <div class="brand-txt">
+        <b id="topTitle">陈老师的检查资料——从选择到判断</b>
+        <small id="topSub">《健康评估》项目五 · 资料整合与临床推理训练</small>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="chip" id="chipPhase" hidden></span>
+      <span class="chip chip-count" id="chipCount" hidden>已调阅 0/3 类</span>
+      <span class="chip chip-stu" id="chipStu" hidden></span>
+      <button class="btn btn-sm" id="btnCaseDrawer" hidden>回看病例</button>
+      <button class="btn btn-sm" id="btnReadList" hidden>已读资料</button>
+    </div>
+  </div>
+</header>
+
+<div class="offline-strip">
+  <b>离线学习版</b>｜作答、调阅次数与学习档案<strong>仅保存在本机浏览器，不会同步给教师端</strong>；
+  请按教师要求暂停与继续，完成后下载个人档案并另行上传雨课堂提交。
+</div>
+
+
+<main>
+  <!-- 1. 首页 -->
+  <section class="view" id="v-home">
+    <div class="hero">
+      <div class="hero-img">
+        <img src="images/intro.png" alt="病房情境引入：床旁设备与正在休息的患者" id="introImg">
+      </div>
+      <div class="card hero-side" style="margin-bottom:0">
+        <div class="eyebrow">《健康评估》项目五 · 临床推理训练</div>
+        <h1>陈老师的检查资料<br>——从选择到判断</h1>
+        <p class="muted small" style="margin-bottom:14px">
+          回顾病例 → 说明查阅依据 → 优先调阅资料 → 课堂交流 → 形成判断 → 核验 AI 建议 → 修订并提交学习档案
+        </p>
+        <div class="callout" id="homeHint">床旁设备用于呈现评估情境，并不表示每项检查都需要使用。请根据病例资料，决定优先了解什么。</div>
+        <div class="row">
+          <button class="btn btn-primary btn-lg" id="btnStart">开始查看病例</button>
+        </div>
+        <p class="tiny muted" style="margin:12px 0 0">本网站不需要任何外部账号，使用浏览器打开即可。</p>
+      </div>
+    </div>
+    <div class="note-strip" style="margin-top:16px" id="simNote">
+      本病例与全部检查报告均为教学模拟资料，非真实患者报告，不作为医疗凭证。
+    </div>
+  </section>
+
+  <!-- 2. 身份登记 -->
+  <section class="view" id="v-register">
+    <div class="card" style="max-width:600px;margin:30px auto">
+      <h2>登记学习身份</h2>
+      <p class="muted small">用于生成你的个人学习档案。同一学号再次进入会恢复此前的调阅记录与作答。</p>
+      <div class="divider"></div>
+      <div class="form-grid">
+        <label class="field"><span class="lbl">姓名<span class="req">*</span></span><input type="text" id="regName" autocomplete="name" placeholder="请输入姓名"></label>
+        <label class="field"><span class="lbl">学号<span class="req">*</span></span><input type="text" id="regSid" autocomplete="off" placeholder="请输入学号"></label>
+        <label class="field"><span class="lbl">班级<span class="req">*</span></span><input type="text" id="regClass" placeholder="例如：护理2301班"></label>
+        <label class="field"><span class="lbl">组号<span class="req">*</span></span><input type="text" id="regGroup" placeholder="例如：第3组"></label>
+      </div>
+      <div class="row end">
+        <button class="btn" id="btnRegBack">返回首页</button>
+        <button class="btn btn-primary" id="btnRegSubmit">登记并查看病例</button>
+      </div>
+      <p class="hint" id="regErr" style="color:var(--danger);display:none"></p>
+    </div>
+  </section>
+
+  <!-- 3. 病例与任务说明 -->
+  <section class="view" id="v-case">
+    <div class="card">
+      <h2>病例回顾</h2>
+      <p class="muted small">请先读完病例，再进入资料库。此后随时可点顶部「回看病例」。</p>
+      <div id="caseFull"></div>
+    </div>
+    <div class="card">
+      <h2>本轮任务说明</h2>
+      <div class="callout pre" id="taskIntro"></div>
+      <p class="hint" id="limitNote"></p>
+      <div class="row end">
+        <button class="btn btn-primary btn-lg" id="btnEnterLibrary">进入资料库</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 资料库 -->
+  <section class="view" id="v-library">
+    <div class="steps" id="stepsLib"></div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <div><h2 style="margin-bottom:4px">优先调阅检查资料</h2><p class="muted small" style="margin:0">资料卡仅显示名称与检查阶段，请结合病例自行判断。</p></div>
+        <span class="chip chip-count" id="libCount">已调阅 0/3 类</span>
+      </div>
+      <div class="divider"></div>
+      <div class="callout pre small" id="libTaskIntro"></div>
+      <div class="row" style="margin-bottom:14px">
+        <button class="btn btn-sm" id="btnCaseDrawer2">回看病例</button>
+        <button class="btn btn-sm" id="btnThinking">思考提示</button>
+        <div id="thinkingBox" class="grow" style="display:none"><div class="thinking" id="thinkingList"></div></div>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+      <p class="hint" id="libLimitNote" style="margin-top:14px"></p>
+    </div>
+    <div class="card tight">
+      <div class="row" style="justify-content:space-between">
+        <span class="small muted">你可以在认为资料足够时提前结束，不必用满三次机会。</span>
+        <button class="btn btn-accent" id="btnFinish">结束调阅，准备课堂交流</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 课堂交流节点 -->
+  <section class="view" id="v-pause">
+    <div class="steps" id="stepsPause"></div>
+    <div class="card">
+      <h2>课堂交流节点——请按教师要求暂停。</h2>
+      <p class="muted small">下面内容由你的调阅记录自动生成，不需要重新抄写。暂停期间不能新增调阅、不能提前查看 AI 建议，也不能跳过教师节点进入最终提交。</p>
+      <div class="divider"></div>
+      <h3>我这轮的记录</h3>
+      <div id="pauseSummary"></div>
+    </div>
+    <div class="card tight">
+      <div class="wait-box">
+        <div class="pulse">⏸</div>
+        <h3 style="margin-bottom:6px">请按教师要求暂停，准备交流自己的选择与发现</h3>
+        <p class="muted small" id="pauseWait">教师点击「进入个人分析」后，本页会自动开放下一阶段。</p>
+        <div class="row" style="justify-content:center;margin-top:14px">
+          <button class="btn btn-sm" id="btnCaseDrawer3">回看病例</button>
+          <button class="btn btn-sm" id="btnPauseRefresh">检查教师是否已开放下一阶段</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AI 介入前的个人分析 -->
+  <section class="view" id="v-analysis">
+    <div class="steps" id="stepsAnalysis"></div>
+    <div class="card">
+      <h2>AI 介入前的个人分析</h2>
+      <p class="muted small">不要求给出确定的疾病诊断；尚未获得关键确诊资料时，可以保留「疑似」「仍需验证」等表述。保存后这一版本会作为原始记录保留，不被后续修订覆盖。</p>
+      <div id="analysisForm">
+        <label class="field">
+          <span class="lbl">1. 我目前的判断或主要解释是：<span class="req">*</span></span>
+          <textarea class="short" id="anJudgement" placeholder="建议 1～2 句话"></textarea>
+          <div class="hint">建议 1～2 句话</div>
+        </label>
+        <label class="field">
+          <span class="lbl">2. 最支持这一判断的依据是：<span class="req">*</span></span>
+          <textarea class="short" id="anEvidence" placeholder="最多两条，可引用病例资料或已经获得的报告"></textarea>
+          <div class="hint">最多两条，引用病例资料或已经获得的报告</div>
+        </label>
+        <label class="field">
+          <span class="lbl">3. 目前仍不能确定、需要继续核实的是：</span>
+          <textarea class="short" id="anUncertainty" placeholder="写一条即可"></textarea>
+        </label>
+        <div class="field">
+          <span class="lbl">我对目前判断的把握程度：<span class="req">*</span></span>
+          <div class="radio-cards" id="confidenceBox">
+            <label class="radio-card" data-v="低"><input type="radio" name="conf" value="低">低</label>
+            <label class="radio-card" data-v="中"><input type="radio" name="conf" value="中">中</label>
+            <label class="radio-card" data-v="高"><input type="radio" name="conf" value="高">高</label>
+          </div>
+        </div>
+        <div class="row end">
+          <button class="btn btn-primary" id="btnSaveAnalysis">保存我的分析，准备核验AI建议。</button>
+        </div>
+      </div>
+      <div id="analysisSaved" style="display:none"></div>
+    </div>
+  </section>
+
+  <!-- 7. AI 建议 -->
+  <section class="view" id="v-ai">
+    <div class="steps" id="stepsAi"></div>
+    <div class="card">
+      <h2>核验 AI 建议</h2>
+      <div class="callout warn" id="aiDisclaimer">以下建议可能存在推理疏漏，请结合你掌握的资料核验。</div>
+      <div id="aiGate"></div>
+      <div id="aiContent" style="display:none">
+        <div class="ai-box" id="aiText"></div>
+        <div class="divider"></div>
+        <div class="row end">
+          <button class="btn btn-primary" id="btnToRevision">进入核验与修订</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 核验、修订与最终判断 -->
+  <section class="view" id="v-revision">
+    <div class="steps" id="stepsRev"></div>
+    <div class="card">
+      <h2>核验、修订与最终判断</h2>
+      <p class="muted small">允许保留原判断，但需要说明理由；不要求每个人必须修改，也不要求每个人必须反对 AI。</p>
+      <div id="revForm">
+        <div class="field">
+          <span class="lbl">1. 对 AI 建议的回应：<span class="req">*</span></span>
+          <div class="radio-cards" id="stanceBox">
+            <label class="radio-card" data-v="采纳"><input type="radio" name="stance" value="采纳">采纳</label>
+            <label class="radio-card" data-v="部分采纳"><input type="radio" name="stance" value="部分采纳">部分采纳</label>
+            <label class="radio-card" data-v="不采纳"><input type="radio" name="stance" value="不采纳">不采纳</label>
+          </div>
+        </div>
+        <label class="field">
+          <span class="lbl">2. 我准备保留或修正什么？依据是什么？<span class="req">*</span></span>
+          <textarea id="revReason" placeholder="结合病例与已获得的报告说明你的理由"></textarea>
+        </label>
+        <label class="field">
+          <span class="lbl">3. 保存最终判断<span class="req">*</span></span>
+          <textarea class="short" id="revFinal" placeholder="可以保留原判断，也可以修订"></textarea>
+        </label>
+        <label class="field">
+          <span class="lbl">4. 下一步需要继续评估或核实的内容<span class="req">*</span></span>
+          <textarea class="short" id="revNext" placeholder="写一项即可"></textarea>
+        </label>
+        <div class="row end">
+          <button class="btn btn-primary" id="btnSaveRevision">保存最终判断，查看学习档案</button>
+        </div>
+      </div>
+      <div id="revSaved" style="display:none"></div>
+    </div>
+  </section>
+
+  <!-- 9. 学习档案 -->
+  <section class="view" id="v-archive">
+    <div class="steps" id="stepsArchive"></div>
+    <div class="card">
+      <h2>我的学习档案</h2>
+      <p class="muted small">以下内容自动汇总自你的原始记录，提交后教师端可查看、导出。</p>
+      <div id="archiveBody"></div>
+    </div>
+    <div class="card tight" id="submitBar">
+      <div class="row" style="justify-content:space-between">
+        <span class="small muted" id="submitHint">请核对以上内容后提交。</span>
+        <button class="btn btn-accent btn-lg" id="btnSubmit">确认提交我的学习档案。</button>
+      </div>
+    </div>
+    <div class="card" id="submitDone" style="display:none"></div>
+  </section>
+</main>
+
+<!-- 病例抽屉 -->
+<div class="overlay" id="caseDrawer" hidden>
+  <div class="modal narrow">
+    <div class="modal-head"><h3>病例回顾</h3><button class="icon-btn" data-close="caseDrawer" aria-label="关闭">×</button></div>
+    <div class="modal-body" id="caseDrawerBody"></div>
+    <div class="modal-foot"><button class="btn btn-primary" data-close="caseDrawer">关闭并返回</button></div>
+  </div>
+</div>
+
+<!-- 已读资料回看 -->
+<div class="overlay" id="readListModal" hidden>
+  <div class="modal narrow">
+    <div class="modal-head"><h3>已读资料回看</h3><button class="icon-btn" data-close="readListModal" aria-label="关闭">×</button></div>
+    <div class="modal-body" id="readListBody"></div>
+    <div class="modal-foot"><button class="btn btn-primary" data-close="readListModal">关闭并返回</button></div>
+  </div>
+</div>
+
+<!-- 查阅依据弹窗 -->
+<div class="overlay" id="reasonModal" hidden>
+  <div class="modal narrow">
+    <div class="modal-head"><h3 id="reasonTitle">填写查阅依据</h3><button class="icon-btn" data-close="reasonModal" aria-label="关闭">×</button></div>
+    <div class="modal-body">
+      <p class="small muted" id="reasonCatInfo"></p>
+      <label class="field" style="margin-top:12px">
+        <span class="lbl" id="reasonPrompt">结合病例中的一条线索，说明你希望通过这项检查弄清什么。<span class="req">*</span></span>
+        <textarea id="reasonText" placeholder="写一句话即可，例如：患者近两天发热、黄黏痰增多，我想弄清是否存在明显的炎症反应。"></textarea>
+        <div class="hint"><span id="reasonHint"></span> <span id="reasonLen" style="float:right"></span></div>
+      </label>
+      <p class="hint" style="color:var(--danger);display:none" id="reasonErr"></p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close="reasonModal">取消选择</button>
+      <button class="btn btn-primary" id="btnReasonSave">保存依据并查看报告</button>
+    </div>
+  </div>
+</div>
+
+<!-- 报告阅读窗口 -->
+<div class="overlay" id="reportModal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="reportTitle">报告</h3>
+      <button class="icon-btn" data-close="reportModal" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body" id="reportBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-primary" data-close="reportModal">关闭并返回资料库</button>
+    </div>
+  </div>
+</div>
+
+<!-- 图片放大 -->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lb-bar">
+    <span class="small" id="lbName">高清报告</span>
+    <div>
+      <button id="lbZoomOut">缩小</button>
+      <button id="lbZoomIn">放大</button>
+      <button id="lbReset">复位</button>
+      <button id="lbClose">关闭 ✕</button>
+    </div>
+  </div>
+  <img id="lbImg" src="" alt="报告高清图片">
+  <div class="lb-tip">滚轮 / 双击 / 双指可缩放，拖动可平移；关闭后返回报告窗口</div>
+</div>
+
+<div id="toast"></div>
+<script>window.__OFFLINE_DATA__={"content":{"title":"陈老师的检查资料——从选择到判断","subtitle":"《健康评估》项目五 · 资料整合与临床推理训练","simulation_note":"本病例与全部检查报告均为教学模拟资料，非真实患者报告，不作为医疗凭证。","home_hint":"床旁设备用于呈现评估情境，并不表示每项检查都需要使用。请根据病例资料，决定优先了解什么。","case_blocks":[{"title":"基本情况","lines":["陈建明，男，50岁，中学教师，妻子陪同。"]},{"title":"症状与本次变化","lines":["反复咳嗽、咳痰十余年，平时主要为少量白色黏痰。","近两天发热、乏力，咳嗽加重，黄黏痰增多且不易咳出。活动后呼吸较平时费力，坐下休息后减轻。"]},{"title":"既往与生活习惯","lines":["吸烟约20年，每天约10支。","来院前自行服过抗生素，具体药名和剂量记不清。"]},{"title":"此前获得的评估资料","lines":["体温37.8℃。","脉搏96次/分。","呼吸22次/分。","血压128/78 mmHg。","室内空气条件下SpO₂ 95%。","清醒，能够完整交流，略显疲惫。","胸廓无明显畸形，双侧呼吸运动及胸廓扩张基本对称。","叩诊以清音为主。","前期听诊片段中可闻及哮鸣音。"]},{"title":"此前检查过程中，患者曾说","lines":["“刚才配合深呼吸有点累，我能先歇一会儿吗？”"],"quote":true},{"title":"其他情况","lines":["患者仍牵挂班里的学生及课程安排，妻子愿意提供帮助。"]}],"task_intro":"请针对陈老师本次症状变化和长期呼吸道问题，优先选择你认为最有价值的检查资料。\n本轮最多调阅三类资料。每次查看前，请结合病例中的一条线索，简短说明你准备通过这项检查弄清什么。\n你可以在认为资料足够时结束调阅，不必用满三次机会。调阅结束后，请按教师要求暂停，准备交流自己的选择与发现。","reason_prompt":"结合病例中的一条线索，说明你希望通过这项检查弄清什么。","reason_hint":"建议写一句话，约20～60字；不必长篇论证，也不按是否包含某个关键词判定对错。","limit_note":"三次限制用于本轮资料优先选择训练，不代表临床最多只能进行三项检查。","thinking_prompts":["这份资料支持什么？","它还不能说明什么？","检查时间与本次就诊是否一致？"],"teacher_questions":["你当时想解决什么疑问？","这份资料实际回答了什么？","有没有结果与你原来的想法不同？","现在还有什么不能确定？"],"ai_disclaimer":"以下建议可能存在推理疏漏，请结合你掌握的资料核验。","max_access":3,"categories":[{"id":"blood","name":"血液炎症资料","stage":"本次就诊"},{"id":"dr","name":"胸部DR资料","stage":"本次就诊"},{"id":"abg","name":"动脉血气资料","stage":"本次就诊"},{"id":"pft","name":"病情稳定后的肺功能资料","stage":"稳定后随访"},{"id":"ecg","name":"心电图资料","stage":"本次就诊"},{"id":"urine","name":"既往尿常规","stage":"既往体检（2026-05-16）"},{"id":"lipid","name":"既往血脂","stage":"既往体检（2026-05-16）"},{"id":"ct","name":"胸部CT补充资料","stage":"本次补充资料"},{"id":"mri","name":"既往胸部MRI资料","stage":"既往外院资料（2026-05-20）"}],"phase":"自主学习（本机保存）"},"category_meta":{"blood":{"name":"血液炎症资料","stage":"本次就诊","time_label":"检查时间 2026-11-16 09:10；血常规报告 09:40、CRP 报告 10:05","notice":"本类包含两张报告，可在同一阅读窗口内切换查看，合并计为一类资料。"},"dr":{"name":"胸部DR资料","stage":"本次就诊","time_label":"检查时间 2026-11-16 09:30；报告时间 10:00","notice":"本项为教学模拟文字报告。"},"abg":{"name":"动脉血气资料","stage":"本次就诊","time_label":"检查时间 2026-11-16 09:15；报告时间 09:22","notice":""},"pft":{"name":"病情稳定后的肺功能资料","stage":"稳定后随访","time_label":"检查时间 2026-12-28 09:00；报告时间 09:25","notice":"本资料为患者病情稳定后的随访检查，不能理解为发热、疲惫时当场完成。"},"ecg":{"name":"心电图资料","stage":"本次就诊","time_label":"检查时间 2026-11-16 09:25；报告时间 09:40","notice":""},"urine":{"name":"既往尿常规","stage":"既往体检（2026-05-16）","time_label":"检查时间 2026-05-16 08:30；报告时间 09:10","notice":"既往体检资料（2026-05-16），检查时间早于本次就诊，不能混同于本次就诊结果。"},"lipid":{"name":"既往血脂","stage":"既往体检（2026-05-16）","time_label":"检查时间 2026-05-16 08:25；报告时间 10:00","notice":"既往体检资料（2026-05-16），检查时间早于本次就诊，不能混同于本次就诊结果。"},"ct":{"name":"胸部CT补充资料","stage":"本次补充资料","time_label":"检查时间 2026-11-16 11:10；报告时间 11:45","notice":"本项为本次就诊的补充检查资料；是否选用取决于你想解决的疑问，由教师结合查阅目的交流。"},"mri":{"name":"既往胸部MRI资料","stage":"既往外院资料（2026-05-20）","time_label":"检查时间 2026-05-20 14:15；报告时间 15:05","notice":"既往外院资料（2026-05-20），不代表本次就诊状态。"}},"categories":[{"id":"blood","name":"血液炎症资料","stage":"本次就诊","images":[{"key":"blood_cbc","label":"血常规（血细胞分析）"},{"key":"blood_crp","label":"C反应蛋白（CRP）"}]},{"id":"dr","name":"胸部DR资料","stage":"本次就诊","images":[{"key":"chest_dr","label":"胸部DR检查报告"}]},{"id":"abg","name":"动脉血气资料","stage":"本次就诊","images":[{"key":"abg","label":"动脉血气分析报告"}]},{"id":"pft","name":"病情稳定后的肺功能资料","stage":"稳定后随访","images":[{"key":"pft","label":"肺通气功能检查报告"}]},{"id":"ecg","name":"心电图资料","stage":"本次就诊","images":[{"key":"ecg","label":"十二导联心电图检查报告"}]},{"id":"urine","name":"既往尿常规","stage":"既往体检（2026-05-16）","images":[{"key":"urine","label":"尿液分析报告（既往）"}]},{"id":"lipid","name":"既往血脂","stage":"既往体检（2026-05-16）","images":[{"key":"lipid","label":"血脂检验报告（既往）"}]},{"id":"ct","name":"胸部CT补充资料","stage":"本次补充资料","images":[{"key":"ct","label":"胸部CT平扫报告（补充）"}]},{"id":"mri","name":"既往胸部MRI资料","stage":"既往外院资料（2026-05-20）","images":[{"key":"mri","label":"胸部MRI平扫报告（既往）"}]}],"reports":{"blood_cbc":[{"type":"title","text":"血细胞分析报告单（主要项目）","sub":"报告编号：SIM-CBC-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","本次就诊"],["标本/项目","静脉全血"],["检查时间","2026-11-16 09:10"],["报告时间","2026-11-16 09:40"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"table","head":["检验项目","结果","单位","参考区间","提示"],"rows":[["白细胞计数 WBC","11.80","×10⁹/L","3.5～9.5","↑"],["中性粒细胞百分数 NEU%","78.0","%","40～75","↑"],["中性粒细胞绝对值 NEU#","9.20","×10⁹/L","1.8～6.3","↑"],["淋巴细胞绝对值 LYM#","1.89","×10⁹/L","1.1～3.2","—"],["红细胞计数 RBC","4.80","×10¹²/L","4.3～5.8","—"],["血红蛋白 HGB","145","g/L","130～175","—"],["血细胞比容 HCT","0.432","L/L","0.40～0.50","—"],["平均红细胞体积 MCV","90.0","fL","82～100","—"],["平均红细胞血红蛋白含量 MCH","30.2","pg","27～34","—"],["平均红细胞血红蛋白浓度 MCHC","336","g/L","316～354","—"],["血小板计数 PLT","238","×10⁹/L","125～350","—"]]},{"type":"note","text":"本单为主要项目摘录。↑高于参考区间；↓低于参考区间；—未超出本单参考区间。"},{"type":"note","text":"出具科室：检验科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"blood_crp":[{"type":"title","text":"C反应蛋白检验报告单","sub":"报告编号：SIM-CRP-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","本次就诊"],["标本/项目","血清"],["检查时间","2026-11-16 09:10"],["报告时间","2026-11-16 10:05"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"table","head":["检验项目","结果","单位","参考区间","提示"],"rows":[["C反应蛋白 CRP","24.0","mg/L","＜8.0","↑"]]},{"type":"p","text":"检测说明：检测方法：免疫比浊法。参考区间采用本模拟检验室设置。"},{"type":"note","text":"出具科室：检验科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"chest_dr":[{"type":"title","text":"胸部DR检查报告单","sub":"报告编号：SIM-DR-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","本次就诊"],["标本/项目","胸部DR"],["检查时间","2026-11-16 09:30"],["报告时间","2026-11-16 10:00"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"p","text":"检查技术：胸部DR，站立后前位。"},{"type":"p","text":"影像所见：双肺纹理稍增多。双肺野未见明确局灶性浸润或实变影。双侧肋膈角锐利，未见胸腔积液征象。心影大小未见明显异常。"},{"type":"p","text":"影像意见：双肺纹理稍增多，未见明确肺实变影。请结合临床。"},{"type":"note","text":"本页为教学模拟文字报告，未附X线原片。"},{"type":"note","text":"出具科室：医学影像科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"abg":[{"type":"title","text":"动脉血气分析报告单","sub":"报告编号：SIM-ABG-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","本次就诊"],["标本/项目","动脉全血"],["检查时间","2026-11-16 09:15"],["报告时间","2026-11-16 09:22"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"table","head":["检验项目","结果","单位","参考区间","提示"],"rows":[["酸碱度 pH","7.40","—","7.35～7.45","—"],["二氧化碳分压 PaCO₂","40","mmHg","35～45","—"],["氧分压 PaO₂","78","mmHg","80～100","↓"],["碳酸氢根 HCO₃⁻","24.0","mmol/L","22～26","—"]]},{"type":"p","text":"采样条件：静息状态，呼吸室内空气，FiO₂ 21%；采样时未吸氧。"},{"type":"note","text":"PaO₂采用本模拟检验室成人参考区间，判读需结合年龄和临床状态。"},{"type":"note","text":"出具科室：检验科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"pft":[{"type":"title","text":"肺通气功能检查报告单","sub":"报告编号：SIM-PFT-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","稳定后随访"],["标本/项目","肺通气功能"],["检查时间","2026-12-28 09:00"],["报告时间","2026-12-28 09:25"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"table","head":["检查指标","舒张前","舒张后","变化量"],"rows":[["第一秒用力呼气容积 FEV₁ (L)","1.80","1.92","+0.12"],["用力肺活量 FVC (L)","3.20","3.30","+0.10"],["一秒率 FEV₁/FVC（比值）","0.563","0.582","+0.019"]]},{"type":"p","text":"图中另附：容积—时间曲线（教学模拟）、呼气流量—容积曲线（教学模拟）。"},{"type":"p","text":"检查条件与质量：病情稳定后检查，配合良好。舒张前后各3次可接受操作。模拟质量评级：FEV₁、FVC均为A级；最佳与次佳差值均≤0.15 L。"},{"type":"p","text":"报告意见：支气管舒张后FEV₁/FVC仍降低，请结合病史与临床资料。"},{"type":"note","text":"主要实测指标版；未列身高、预计值方程及预计值，故不作损害程度分级。曲线由参数化模型生成，非真实患者原始测量曲线。"},{"type":"note","text":"出具科室：肺功能室。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"ecg":[{"type":"title","text":"十二导联心电图检查报告单","sub":"报告编号：SIM-ECG-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","本次就诊"],["标本/项目","十二导联心电图"],["检查时间","2026-11-16 09:25"],["报告时间","2026-11-16 09:40"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"p","text":"心率 96次/分　PR 160 ms　QRS 88 ms　QT/QTc 332/420 ms"},{"type":"p","text":"QRS电轴 +55°　QTc校正：Bazett　走纸速度 25 mm/s　增益 10 mm/mV"},{"type":"p","text":"以下为参数化教学模拟波形，并非真实患者心电记录。"},{"type":"p","text":"报告意见：窦性心律。未见明确急性缺血性ST-T改变。请结合临床。"},{"type":"note","text":"波形为教学参数模型：RR 0.625 s、PR 0.160 s、QRS 0.088 s、QT 0.332 s；非实际采集。"},{"type":"note","text":"出具科室：心电图室。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"urine":[{"type":"title","text":"尿液分析报告单（主要项目）","sub":"报告编号：SIM-UR-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","健康体检"],["资料阶段","既往体检"],["标本/项目","中段尿"],["检查时间","2026-05-16 08:30"],["报告时间","2026-05-16 09:10"],["临床信息","既往体检资料"]]},{"type":"table","head":["检验项目","结果","单位","参考区间","提示"],"rows":[["尿比重 SG","1.015","—","1.005～1.030","—"],["尿酸碱度 pH","6.0","—","4.5～8.0","—"],["尿蛋白 PRO","阴性","—","阴性","—"],["尿糖 GLU","阴性","—","阴性","—"],["尿潜血 BLD","阴性","—","阴性","—"]]},{"type":"note","text":"既往报告摘录；检测日期早于本次就诊，不能等同于本次即时评估结果。"},{"type":"note","text":"出具科室：检验科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"lipid":[{"type":"title","text":"血脂检验报告单","sub":"报告编号：SIM-LIPID-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","健康体检"],["资料阶段","既往体检"],["标本/项目","空腹血清"],["检查时间","2026-05-16 08:25"],["报告时间","2026-05-16 10:00"],["临床信息","既往体检资料"]]},{"type":"table","head":["检验项目","结果","单位","参考标准*","提示"],"rows":[["总胆固醇 TC","4.80","mmol/L","＜5.20","—"],["甘油三酯 TG","1.20","mmol/L","＜1.70","—"],["高密度脂蛋白胆固醇 HDL-C","1.30","mmol/L","≥1.00","—"],["低密度脂蛋白胆固醇 LDL-C","2.95","mmol/L","＜3.40","—"]]},{"type":"note","text":"*列示成人一般血脂参考标准；个体化LDL-C目标需结合心血管风险判断。本单为既往体检资料，不代表本次就诊重新检测。"},{"type":"note","text":"出具科室：检验科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"ct":[{"type":"title","text":"胸部CT平扫报告单","sub":"报告编号：SIM-CT-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","呼吸内科"],["资料阶段","本次补充资料"],["标本/项目","胸部CT平扫"],["检查时间","2026-11-16 11:10"],["报告时间","2026-11-16 11:45"],["临床信息","咳嗽、咳痰原因待查"]]},{"type":"p","text":"检查技术：胸部CT平扫，薄层重建，肺窗及纵隔窗观察。"},{"type":"p","text":"影像所见：双肺上叶见少许小叶中心性低密度区，未见明确可辨识壁。双肺支气管血管束稍增多。未见明确肺实变影。气管及主支气管通畅。纵隔未见明显肿大淋巴结。双侧胸腔未见积液。"},{"type":"p","text":"影像意见：双肺上叶轻度肺气肿样改变。未见明确肺实变影。请结合临床及肺功能检查。"},{"type":"note","text":"本页为教学模拟文字报告；未附CT原始断层图像。"},{"type":"note","text":"出具科室：医学影像科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}],"mri":[{"type":"title","text":"胸部MRI平扫报告单（既往）","sub":"报告编号：SIM-MRI-001"},{"type":"kv","items":[["姓名","陈建明"],["性别","男"],["年龄","50岁"],["就诊编号","JX-CHEN-005"],["科室","外院影像检查"],["资料阶段","既往外院资料"],["标本/项目","胸部MRI平扫"],["检查时间","2026-05-20 14:15"],["报告时间","2026-05-20 15:05"],["临床信息","既往外院检查资料，原申请信息未提供"]]},{"type":"p","text":"检查技术：胸部MRI平扫，轴位及冠状位T1WI、T2WI及脂肪抑制序列。"},{"type":"p","text":"影像所见：所示纵隔内未见明确占位性病变。双侧胸腔未见明显积液。胸壁软组织未见明确异常信号。肺内细微结构显示受限。"},{"type":"p","text":"影像意见：所示纵隔及胸壁未见明确占位性病变。未见明显胸腔积液。请结合临床。"},{"type":"note","text":"本页为教学模拟文字报告；未附MR原始图像。既往检查不代表本次疾病状态。"},{"type":"note","text":"出具科室：医学影像科。报告者：教学模拟　审核者：教学模拟　教学模拟资料 · 非真实患者报告 · 不作为医疗凭证"}]},"image_meta":{"blood_cbc":{"category_id":"blood","label":"血常规（血细胞分析）"},"blood_crp":{"category_id":"blood","label":"C反应蛋白（CRP）"},"chest_dr":{"category_id":"dr","label":"胸部DR检查报告"},"abg":{"category_id":"abg","label":"动脉血气分析报告"},"pft":{"category_id":"pft","label":"肺通气功能检查报告"},"ecg":{"category_id":"ecg","label":"十二导联心电图检查报告"},"urine":{"category_id":"urine","label":"尿液分析报告（既往）"},"lipid":{"category_id":"lipid","label":"血脂检验报告（既往）"},"ct":{"category_id":"ct","label":"胸部CT平扫报告（补充）"},"mri":{"category_id":"mri","label":"胸部MRI平扫报告（既往）"}},"ai_templates":{"A":{"name":"分支A｜已查看血液炎症资料","reasonable":"结合共同病例资料：陈老师反复咳嗽、咳痰十余年，平时为少量白色黏痰；吸烟约20年，每天约10支；近两天发热、乏力，咳嗽加重，黄黏痰增多且不易咳出，活动后呼吸较平时费力，坐下休息后减轻。已记录的评估资料包括体温37.8℃、脉搏96次/分、呼吸22次/分、血压128/78 mmHg、室内空气下SpO₂ 95%，前期听诊片段中可闻及哮鸣音。你本轮已调阅的资料包括：{read_list}。其中血液炎症资料提示存在炎症反应，与近期发热、痰量及性状改变一起，支持「此次存在与平时不同的变化」这一判断；长期呼吸道症状与吸烟史则提示需要同时考虑慢性气道问题。目前的证据更适合用于提出需要继续澄清的疑问，而不是直接给出确定结论。","claim":"白细胞和CRP升高，已经足以确诊合并细菌性肺炎。","closing":"请结合你已获得的资料，核验上述建议中是否有结论超出了证据能够支持的范围。","keypoint":"炎症指标升高不能单独确定感染部位、病原体或确诊肺炎，需要结合其他证据。"},"B":{"name":"分支B｜未看血液炎症资料、但看了肺功能","reasonable":"结合共同病例资料：陈老师反复咳嗽、咳痰十余年，平时为少量白色黏痰；吸烟约20年，每天约10支；近两天发热、乏力，咳嗽加重，黄黏痰增多且不易咳出，活动后呼吸较平时费力，坐下休息后减轻。已记录的评估资料包括体温37.8℃、脉搏96次/分、呼吸22次/分、血压128/78 mmHg、室内空气下SpO₂ 95%，前期听诊片段中可闻及哮鸣音。你本轮已调阅的资料包括：{read_list}。病情稳定后的肺功能资料有助于理解长期咳嗽、咳痰与活动后呼吸费力所反映的持续性气流受限；同时要注意，该检查完成于稳定后随访阶段，检查时间与本次发热、乏力时的状态并不一致。因此，把长期存在的气道问题与此次急性变化放在一起考虑是有必要的。","claim":"既然存在气流受限，这次所有症状都可以归因于同一个慢性气道问题，不必再考虑其他解释。","closing":"请结合你已获得的资料，核验上述建议中是否有结论超出了证据能够支持的范围。","keypoint":"长期气流受限的证据不能自动解释此次全部急性变化，仍需考虑加重诱因及其他疾病。"},"C":{"name":"分支C｜未看上述两类资料","reasonable":"结合共同病例资料：陈老师反复咳嗽、咳痰十余年，平时为少量白色黏痰；吸烟约20年，每天约10支；近两天发热、乏力，咳嗽加重，黄黏痰增多且不易咳出，活动后呼吸较平时费力，坐下休息后减轻。已记录的评估资料包括体温37.8℃、脉搏96次/分、呼吸22次/分、血压128/78 mmHg、室内空气下SpO₂ 95%，前期听诊片段中可闻及哮鸣音。你本轮已调阅的资料包括：{read_list}。长期咳嗽咳痰、吸烟史与哮鸣音都提示需要进一步评估气道情况，而近两天发热、黄黏痰增多和活动后呼吸费力是相对平时的变化。就你目前掌握的资料而言，仍需把「提示某种可能」与「足以支持诊断」区分开，并留意每项资料能回答和不能回答的问题。","claim":"仅凭吸烟史和哮鸣音，就可以确诊慢阻肺。","closing":"请结合你已获得的资料，核验上述建议中是否有结论超出了证据能够支持的范围。","keypoint":"相关病史和体征可以支持怀疑，不能替代必要的客观确诊依据。"}}};</script>
+<script>window.__OFFLINE_IMAGES__={"blood_cbc":"images/blood_cbc.png","blood_crp":"images/blood_crp.png","chest_dr":"images/chest_dr.png","abg":"images/abg.png","pft":"images/pft.png","ecg":"images/ecg.png","urine":"images/urine.png","lipid":"images/lipid.png","ct":"images/ct.png","mri":"images/mri.png","intro":"images/intro.png"};</script>
+<script>
+/* 《健康评估》项目五 · 离线学生版本机数据层
+   用 localStorage 复刻服务端接口语义，供原学生端 app.js 无改动调用。
+   重要：本版本不与任何教师端通信，所有记录只保存在当前浏览器。 */
+(function () {
+  'use strict';
+  var DATA = window.__OFFLINE_DATA__;
+  var IMAGES = window.__OFFLINE_IMAGES__;
+  var STORE = 'ha_offline_v1';
+  var MAX = 3;
+
+  window.IMG_SRC = function (key) { return IMAGES[key] || ''; };
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function now() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' +
+      pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  }
+  function stamp() {
+    var d = new Date();
+    return String(d.getFullYear()) + pad(d.getMonth() + 1) + pad(d.getDate()) +
+      '-' + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+  }
+  function loadDB() {
+    try {
+      var d = JSON.parse(localStorage.getItem(STORE));
+      if (d && d.records) return d;
+    } catch (e) { /* 忽略损坏的本地数据 */ }
+    return { records: {}, token: '' };
+  }
+  var DB = loadDB();
+  function saveDB() { localStorage.setItem(STORE, JSON.stringify(DB)); }
+  function rec() { return DB.records[DB.token] || null; }
+  function blank(stu) {
+    return {
+      student: stu, finished: false, accesses: [], analysis: null,
+      ai: null, revision: null, submission: null
+    };
+  }
+  function meta(cid) { return DATA.category_meta[cid] || {}; }
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fail(msg) { throw new Error(msg); }
+
+  /* ---------------------------------------------------- 状态（与服务端同构） */
+  function buildState(r) {
+    var loaded = r.accesses.filter(function (a) { return a.loaded === 1; });
+    var accessed = r.accesses.map(function (a) {
+      var m = meta(a.category_id);
+      return {
+        category_id: a.category_id, category_name: m.name, stage: m.stage,
+        time_label: m.time_label, notice: m.notice, reason: a.reason,
+        loaded: a.loaded, view_order: a.view_order, confirmed_at: a.confirmed_at,
+        images: a.images, note: a.note, addendums: a.addendums
+      };
+    });
+    return {
+      ok: true,
+      student: r.student,
+      phase: 'ai',
+      phase_label: '自主学习（本机保存）',
+      global_phase: 'ai', override_phase: null,
+      finished_browsing: r.finished,
+      accessed: accessed,
+      count: loaded.length, limit: MAX,
+      analysis: r.analysis, ai: r.ai, revision: r.revision,
+      submission: r.submission,
+      can: {
+        browse: !r.finished,
+        analysis: !!r.finished,
+        ai: !!r.finished && !!r.analysis,
+        revise: !!r.ai,
+        submit: !!r.revision && !r.submission
+      }
+    };
+  }
+
+  function readList(r) {
+    return r.accesses.filter(function (a) { return a.loaded === 1; })
+      .sort(function (a, b) { return (a.view_order || 0) - (b.view_order || 0); })
+      .map(function (a) { return a.category_id; });
+  }
+
+  /* ---------------------------------------------------- AI 分支 */
+  function makeAi(r) {
+    var read = readList(r);
+    var branch = read.indexOf('blood') >= 0 ? 'A' : (read.indexOf('pft') >= 0 ? 'B' : 'C');
+    var tpl = DATA.ai_templates[branch];
+    var names = read.map(function (c) { return meta(c).name; });
+    if (!names.length) names = ['（本轮尚未调阅资料）'];
+    var text = tpl.reasonable.replace('{read_list}', names.join('、')) +
+      '\n\n' + tpl.claim + '\n\n' + tpl.closing;
+    return { branch: branch, content: text, read_list: names, viewed_at: now() };
+  }
+
+  /* ---------------------------------------------------- 学习档案 */
+  function buildArchive(r) {
+    var st = buildState(r), a = r.analysis, ai = r.ai, rev = r.revision;
+    return {
+      '档案名称': DATA.content.title,
+      '姓名': st.student.name, '学号': st.student.sid,
+      '班级': st.student.class_name, '组号': st.student.group_no,
+      '调阅资料及原始依据': st.accessed.filter(function (x) { return x.loaded === 1; })
+        .sort(function (x, y) { return (x.view_order || 0) - (y.view_order || 0); })
+        .map(function (x) {
+          return {
+            '查看顺序': x.view_order, '资料名称': x.category_name,
+            '检查阶段': x.stage, '检查时间': x.time_label,
+            '原始查阅依据': x.reason,
+            '追加的新认识': x.addendums.map(function (z) { return z.text; }),
+            '个人笔记': x.note
+          };
+        }),
+      '已调阅类别数': st.count,
+      'AI介入前的判断': a ? a.judgement : '',
+      'AI介入前的主要依据': a ? a.evidence : '',
+      'AI介入前仍不能确定': a ? a.uncertainty : '',
+      'AI介入前的把握程度': a ? a.confidence : '',
+      '个人分析保存时间': a ? a.saved_at : '',
+      '实际查看的AI建议版本': ai ? ai.branch : '',
+      '实际查看的AI建议内容': ai ? ai.content : '',
+      'AI建议查看时间': ai ? ai.viewed_at : '',
+      '对AI建议的回应': rev ? rev.stance : '',
+      '保留或修正的说明': rev ? rev.change_reason : '',
+      '最终判断': rev ? rev.final_judgement : '',
+      '下一步评估重点': rev ? rev.next_step : '',
+      '修订保存时间': rev ? rev.saved_at : '',
+      '提交编号': r.submission ? r.submission.submit_no : '',
+      '提交时间': r.submission ? r.submission.submitted_at : ''
+    };
+  }
+
+  function archiveHTML() {
+    var r = rec();
+    if (!r) return '<p>尚未登记身份。</p>';
+    var arc = buildArchive(r), skip = { '调阅资料及原始依据': 1 }, rows = '', items = '';
+    Object.keys(arc).forEach(function (k) {
+      if (skip[k]) return;
+      var v = arc[k];
+      if (Array.isArray(v)) v = v.join('；');
+      rows += '<tr><th>' + esc(k) + '</th><td>' + esc(v || '—') + '</td></tr>';
+    });
+    arc['调阅资料及原始依据'].forEach(function (x) {
+      items += '<div class="item"><h3>' + esc(x['查看顺序']) + '. ' + esc(x['资料名称']) +
+        '<span>' + esc(x['检查阶段']) + '｜' + esc(x['检查时间']) + '</span></h3>' +
+        '<p><b>原始查阅依据：</b>' + esc(x['原始查阅依据']) + '</p>' +
+        '<p><b>个人笔记：</b>' + esc(x['个人笔记'] || '—') + '</p>' +
+        (x['追加的新认识'].length
+          ? '<p><b>追加的新认识：</b>' + esc(x['追加的新认识'].join('；')) + '</p>' : '') +
+        '</div>';
+    });
+    var banner = '<div class="offline-banner"><b>离线学习版 · 仅保存到本机</b><br>' +
+      '这份档案由学生本机浏览器生成，<b>没有同步给教师端</b>。请下载或打印后，' +
+      '按教师要求另行上传雨课堂提交。提交编号以 LOCAL- 开头，仅为本机记录编号。</div>';
+    return '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<title>学习档案 - ' + esc(arc['姓名']) + '</title><style>' +
+      'body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#1b2b45;background:#fff;' +
+      'margin:0;padding:28px;max-width:880px;margin:auto;line-height:1.75}' +
+      'h2{color:#1c4e80;font-size:20px;margin:0 0 6px}' +
+      '.offline-banner{background:#fff7e6;border:1px solid #f0c36d;border-radius:10px;' +
+      'padding:14px 16px;margin:16px 0 22px;font-size:13px;color:#7a4b00}' +
+      'table{border-collapse:collapse;width:100%;font-size:13px}' +
+      'th,td{border:1px solid #dbe3ee;padding:8px 10px;vertical-align:top;text-align:left}' +
+      'th{background:#f2f6fb;width:210px;white-space:nowrap}' +
+      'td{white-space:pre-wrap;word-break:break-word}' +
+      '.item{border:1px solid #dbe3ee;border-radius:10px;padding:12px 14px;margin:10px 0}' +
+      '.item h3{font-size:14px;margin:0 0 8px;color:#1c4e80}' +
+      '.item h3 span{font-size:12px;color:#64748b;font-weight:400;margin-left:8px}' +
+      '.item p{margin:4px 0;font-size:13px}' +
+      '.sec{font-size:15px;color:#1c4e80;margin:24px 0 8px}' +
+      '@media print{.noprint{display:none}body{padding:0}}' +
+      '</style></head><body><h2>《健康评估》项目五 · 个人学习档案</h2>' +
+      '<p style="font-size:12px;color:#64748b;margin:0">陈老师的检查资料——从选择到判断</p>' +
+      banner +
+      '<div class="sec">一、学生信息与作答记录</div><table>' + rows + '</table>' +
+      '<div class="sec">二、调阅资料及原始依据（按查看顺序）</div>' + items +
+      '<p class="noprint" style="margin-top:26px"><button onclick="window.print()" ' +
+      'style="padding:9px 18px;background:#1c4e80;color:#fff;border:0;border-radius:8px;' +
+      'cursor:pointer;font-size:14px">打印／保存为 PDF</button></p>' +
+      '</body></html>';
+  }
+
+  window.OFFLINE_DOWNLOAD = function () {
+    var html = archiveHTML(), blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    var r = rec();
+    a.download = '学习档案_' + (r ? r.student.name : '学生') + '_' + (r ? r.student.sid : '') + '.html';
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  };
+  window.OFFLINE_ARCHIVE_HTML = archiveHTML;
+  window.OFFLINE_PRINT = function () {
+    var w = window.open('', '_blank');
+    if (!w) { alert('浏览器拦截了新窗口，请允许弹出窗口后重试，或改用「下载个人档案」。'); return; }
+    w.document.write(archiveHTML());
+    w.document.close();
+  };
+
+  /* ---------------------------------------------------- 接口分发 */
+  function handle(url, method, b) {
+    var q = url.split('?')[0];
+
+    if (q === '/api/content' && method === 'GET') {
+      var c = {}, k;
+      for (k in DATA.content) c[k] = DATA.content[k];
+      c.ok = true;
+      return c;
+    }
+
+    if (q === '/api/student/login' && method === 'POST') {
+      var name = (b.name || '').trim(), sid = (b.sid || '').trim();
+      var cls = (b.class_name || '').trim(), grp = (b.group_no || '').trim();
+      if (!name || !sid || !cls || !grp) fail('请填写姓名、学号、班级和组号');
+      if (DB.records[sid] && DB.records[sid].student.name !== name)
+        fail('该学号已登记，姓名不一致，请确认后再试');
+      if (!DB.records[sid]) DB.records[sid] = blank({ name: name, sid: sid, class_name: cls, group_no: grp });
+      DB.token = sid; saveDB();
+      return { ok: true, token: sid };
+    }
+
+    if (q === '/api/state' && method === 'GET') {
+      var r0 = rec();
+      if (!r0) fail('身份已失效，请重新登记');
+      return buildState(r0);
+    }
+
+    var r = rec();
+    if (!r) fail('请先登记身份');
+
+    if (q === '/api/access/prepare' && method === 'POST') {
+      var cid = b.category_id, reason = (b.reason || '').trim();
+      if (!DATA.category_meta[cid]) fail('资料不存在');
+      if (r.finished) fail('本轮调阅已结束');
+      if (!reason) fail('请先填写查阅依据，再打开报告');
+      var exist = r.accesses.filter(function (a) { return a.category_id === cid; })[0];
+      if (exist) return { ok: true, repeated: true };
+      if (readList(r).length >= MAX) fail('本轮最多调阅三类资料');
+      var cat = DATA.categories.filter(function (x) { return x.id === cid; })[0];
+      r.accesses.push({
+        category_id: cid, reason: reason, loaded: 0, view_order: null,
+        prepared_at: now(), confirmed_at: null,
+        images: (cat ? cat.images : []).map(function (i) { return { key: i.key, label: i.label }; }),
+        note: '', addendums: []
+      });
+      saveDB();
+      return { ok: true };
+    }
+
+    if (q === '/api/access/confirm' && method === 'POST') {
+      var a1 = r.accesses.filter(function (a) { return a.category_id === b.category_id; })[0];
+      if (!a1) fail('没有找到该资料的选择记录');
+      if (a1.loaded !== 1) {
+        var order = readList(r).length + 1;   // 先取序号，再标记已加载
+        a1.loaded = 1;
+        a1.view_order = order;
+        a1.confirmed_at = now();
+        saveDB();
+      }
+      return { ok: true, count: readList(r).length };
+    }
+
+    if (q === '/api/access/cancel' && method === 'POST') {
+      r.accesses = r.accesses.filter(function (a) {
+        return !(a.category_id === b.category_id && a.loaded === 0);
+      });
+      saveDB();
+      return { ok: true };
+    }
+
+    if (q.indexOf('/api/report/') === 0 && method === 'GET') {
+      var key = decodeURIComponent(q.slice('/api/report/'.length));
+      var img = DATA.image_meta[key];
+      if (!img) fail('报告不存在');
+      var ok = r.accesses.some(function (a) {
+        return a.images.some(function (i) { return i.key === key; });
+      });
+      if (!ok) fail('请先通过「填写查阅依据」调阅该资料');
+      return { ok: true, blocks: DATA.reports[key], overridden: false, plain: '' };
+    }
+
+    if (q === '/api/access/addendum' && method === 'POST') {
+      var a2 = r.accesses.filter(function (a) { return a.category_id === b.category_id; })[0];
+      if (!a2) fail('没有找到该资料的调阅记录');
+      var t2 = (b.text || '').trim();
+      if (!t2) fail('请先写下要追加的认识');
+      a2.addendums.push({ text: t2, created_at: now() });
+      saveDB();
+      return { ok: true };
+    }
+
+    if (q === '/api/note' && method === 'POST') {
+      var a3 = r.accesses.filter(function (a) { return a.category_id === b.category_id; })[0];
+      if (!a3) fail('没有找到该资料的调阅记录');
+      a3.note = b.text || '';
+      saveDB();
+      return { ok: true };
+    }
+
+    if (q === '/api/student/finish' && method === 'POST') {
+      r.finished = true; saveDB();
+      return { ok: true };
+    }
+
+    if (q === '/api/analysis' && method === 'POST') {
+      if (!b.judgement || !b.evidence || !b.confidence) fail('请填写判断、依据并选择把握程度');
+      if (r.analysis) fail('AI 介入前的原始分析已保存，不能覆盖');
+      r.analysis = {
+        judgement: b.judgement, evidence: b.evidence,
+        uncertainty: b.uncertainty || '', confidence: b.confidence, saved_at: now()
+      };
+      saveDB();
+      return { ok: true };
+    }
+
+    if (q === '/api/ai/view' && method === 'POST') {
+      if (!r.analysis) fail('请先保存自己的判断及依据');
+      if (!r.ai) { r.ai = makeAi(r); saveDB(); }
+      return { ok: true, branch: r.ai.branch };
+    }
+
+    if (q === '/api/revision' && method === 'POST') {
+      if (!r.ai) fail('请先查看待核验的 AI 建议');
+      if (r.submission) fail('学习档案已提交，不能修改');
+      if (!b.stance || !b.change_reason || !b.final_judgement || !b.next_step)
+        fail('请填写回应、保留或修正的说明、最终判断和下一步评估重点');
+      r.revision = {
+        stance: b.stance, change_reason: b.change_reason,
+        final_judgement: b.final_judgement, next_step: b.next_step, saved_at: now()
+      };
+      saveDB();
+      return { ok: true };
+    }
+
+    if (q === '/api/archive' && method === 'GET') {
+      return { ok: true, archive: buildArchive(r) };
+    }
+
+    if (q === '/api/submit' && method === 'POST') {
+      if (!r.revision) fail('请先保存最终判断');
+      if (!r.submission) {
+        r.submission = {
+          submit_no: 'LOCAL-' + stamp() + '-' + String(r.student.sid).slice(-4),
+          submitted_at: now()
+        };
+        saveDB();
+      }
+      return { ok: true, submit_no: r.submission.submit_no, submitted_at: r.submission.submitted_at };
+    }
+
+    fail('离线版不支持该操作：' + q);
+  }
+
+  var realFetch = window.fetch ? window.fetch.bind(window) : null;
+  window.fetch = function (path, opts) {
+    opts = opts || {};
+    var method = (opts.method || 'GET').toUpperCase();
+    var body = {};
+    try { body = opts.body ? JSON.parse(opts.body) : {}; } catch (e) { /* 忽略 */ }
+    var url = String(path);
+    if (url.indexOf('/api/') !== 0) {
+      return realFetch ? realFetch(path, opts) : Promise.reject(new Error('离线版不加载外部资源'));
+    }
+    return new Promise(function (resolve) {
+      var out, status = 200;
+      try { out = handle(url, method, body); }
+      catch (e) { out = { ok: false, error: e.message }; status = 400; }
+      resolve(new Response(JSON.stringify(out), {
+        status: status,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      }));
+    });
+  };
+})();
+
+</script>
+<script>
+/* 《健康评估》项目五 · 学生端
+   服务端为唯一权威：次数、阶段、原始记录、提交均以 /api/state 为准。
+   浏览器本地存储仅用于「未提交的草稿」与身份 token。 */
+'use strict';
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const IMG_V = Date.now();
+const VIEWS = ['home', 'register', 'case', 'library', 'pause', 'analysis', 'ai', 'revision', 'archive'];
+const STEP_LABELS = ['病例回顾', '资料调阅', '课堂交流', '个人分析', '核验AI', '提交档案'];
+
+const S = {
+  content: null,
+  token: localStorage.getItem('ha_token') || '',
+  state: null,
+  view: 'home',
+  reasonCat: null,
+  reportCat: null,
+  reportImages: [],
+  reportIndex: 0,
+  reportRec: null,
+  confidence: '',
+  stance: '',
+  busy: false,
+};
+
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function show(el) { if (el) el.hidden = false; }
+function hide(el) { if (el) el.hidden = true; }
+function toast(msg, kind = '') {
+  const d = document.createElement('div');
+  d.className = 'toast ' + kind; d.textContent = msg;
+  $('#toast').appendChild(d);
+  setTimeout(() => { d.style.opacity = '0'; d.style.transition = '.3s'; }, 2600);
+  setTimeout(() => d.remove(), 3000);
+}
+function syncCookie() {
+  if (S.token) document.cookie = `student_token=${S.token}; path=/; max-age=604800; SameSite=Lax`;
+}
+async function api(path, method = 'GET', data) {
+  const headers = {};
+  if (S.token) headers['X-Student-Token'] = S.token;
+  const opts = { method, headers, credentials: 'same-origin' };
+  if (data !== undefined) {
+    headers['Content-Type'] = 'application/json';
+    opts.body = JSON.stringify(data);
+  }
+  let r;
+  try { r = await fetch(path, opts); }
+  catch (e) { throw new Error('网络连接失败，请检查网络后重试'); }
+  let d;
+  try { d = await r.json(); } catch (e) { throw new Error('服务端返回异常（' + r.status + '）'); }
+  if (!r.ok || d.ok === false) throw new Error(d.error || '操作失败');
+  return d;
+}
+function busy(btn, on, text) {
+  if (!btn) return;
+  if (on) { btn.dataset.old = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> ' + (text || '处理中'); }
+  else { btn.disabled = false; if (btn.dataset.old) btn.innerHTML = btn.dataset.old; }
+}
+
+/* ------------------------------------------------------------ 草稿 */
+function dkey(f) { return 'ha_draft_' + (S.state?.student?.sid || S.token || 'anon') + '_' + f; }
+function bindDraft(el, key) {
+  if (!el) return;
+  const saved = localStorage.getItem(dkey(key));
+  if (saved !== null && !el.value) el.value = saved;
+  if (el.dataset.draftKey === key) return;   // 避免重复绑定
+  el.dataset.draftKey = key;
+  el.addEventListener('input', () => localStorage.setItem(dkey(key), el.value));
+}
+function clearDrafts(keys) { keys.forEach(k => localStorage.removeItem(dkey(k))); }
+
+/* ------------------------------------------------------------ 初始化 */
+async function boot() {
+  bindStaticEvents();
+  try {
+    S.content = await api('/api/content');
+  } catch (e) { toast('内容加载失败：' + e.message, 'err'); return; }
+  $('#topTitle').textContent = S.content.title;
+  $('#topSub').textContent = S.content.subtitle;
+  document.title = S.content.title + '｜《健康评估》项目五';
+  $('#homeHint').textContent = S.content.home_hint;
+  $('#simNote').textContent = S.content.simulation_note;
+  $('#taskIntro').textContent = S.content.task_intro;
+  $('#libTaskIntro').textContent = S.content.task_intro;
+  $('#limitNote').textContent = S.content.limit_note;
+  $('#libLimitNote').textContent = S.content.limit_note;
+  $('#aiDisclaimer').textContent = S.content.ai_disclaimer;
+  $('#reasonPrompt').innerHTML = esc(S.content.reason_prompt) + '<span class="req">*</span>';
+  $('#reasonHint').textContent = S.content.reason_hint;
+  $('#thinkingList').innerHTML = S.content.thinking_prompts.map(t => `<span>${esc(t)}</span>`).join('');
+  renderCaseBlocks($('#caseFull'));
+  renderCaseBlocks($('#caseDrawerBody'));
+
+  if (S.token) {
+    syncCookie();
+    try { await refreshState(false); }
+    catch (e) { S.token = ''; localStorage.removeItem('ha_token'); }
+  }
+  navigateFromHash();
+  /* 离线版：进度保存在本机，没有教师端轮询 */
+}
+
+async function refreshState(doRender = true) {
+  S.state = await api('/api/state');
+  updateTop();
+  if (doRender) renderView();
+  return S.state;
+}
+
+function updateTop() {
+  const s = S.state, c = S.content;
+  const has = !!s;
+  [$('#chipPhase'), $('#chipCount'), $('#chipStu'), $('#btnCaseDrawer'), $('#btnReadList')]
+    .forEach(el => { if (el) el.hidden = !has; });
+  if (!has) return;
+  $('#chipPhase').textContent = '当前阶段：' + s.phase_label;
+  $('#chipCount').textContent = `已调阅 ${s.count}/${s.limit} 类`;
+  $('#chipStu').textContent = `${s.student.name} · ${s.student.sid}`;
+}
+
+/* ------------------------------------------------------------ 路由与阶段 */
+function recommended() {
+  const s = S.state;
+  if (!s) return 'home';
+  if (s.submission) return 'archive';
+  if (s.revision && s.can.submit) return 'archive';
+  if (s.ai && s.can.revise) return 'revision';
+  if (s.can.ai) return 'ai';
+  if (s.can.analysis) return 'analysis';
+  if (s.can.browse) return 'library';
+  return 'pause';
+}
+function allowed(v) {
+  const s = S.state;
+  if (!s) return ['home', 'register'].includes(v);
+  if (['home', 'register', 'case'].includes(v)) return true;
+  switch (v) {
+    case 'library': return s.can.browse;
+    case 'pause': return !s.can.browse;
+    case 'analysis': return s.can.analysis;
+    case 'ai': return s.can.ai || !!s.ai;
+    case 'revision': return !!s.ai && s.can.revise;
+    case 'archive': return !!s.revision;
+    default: return false;
+  }
+}
+function go(v) {
+  if (location.hash === '#' + v) navigateFromHash();
+  else location.hash = '#' + v;
+}
+function navigateFromHash() {
+  let v = (location.hash || '').replace(/^#/, '');
+  if (!VIEWS.includes(v)) v = recommended();
+  if (!allowed(v)) v = recommended();
+  S.view = v;
+  $$('.view').forEach(el => el.classList.toggle('active', el.id === 'v-' + v));
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  renderView();
+}
+function renderView() {
+  const v = S.view;
+  const idx = { case: 0, library: 1, pause: 2, analysis: 3, ai: 4, revision: 5, archive: 5 }[v] ?? 0;
+  const ids = { library: '#stepsLib', pause: '#stepsPause', analysis: '#stepsAnalysis',
+                ai: '#stepsAi', revision: '#stepsRev', archive: '#stepsArchive' }[v];
+  if (ids) renderSteps($(ids), idx);
+  ({
+    home: renderHome, register: () => {}, case: () => {},
+    library: renderLibrary, pause: renderPause, analysis: renderAnalysis,
+    ai: renderAi, revision: renderRevision, archive: renderArchive,
+  }[v] || (() => {}))();
+}
+function renderSteps(el, active) {
+  if (!el) return;
+  el.innerHTML = STEP_LABELS.map((t, i) =>
+    `<div class="step ${i < active ? 'done' : ''} ${i === active ? 'now' : ''}">${t}</div>`).join('');
+}
+function renderHome() { /* 静态内容已在 boot 填充 */ }
+function renderCaseBlocks(el) {
+  if (!el || !S.content) return;
+  el.innerHTML = S.content.case_blocks.map(b => `
+    <div class="case-block">
+      <h4>${esc(b.title)}</h4>
+      ${b.lines.length > 1 && !b.quote
+        ? '<ul>' + b.lines.map(l => `<li>${esc(l)}</li>`).join('') + '</ul>'
+        : b.lines.map(l => `<div class="${b.quote ? 'quote' : ''}">${esc(l)}</div>`).join('')}
+    </div>`).join('');
+}
+
+/* ------------------------------------------------------------ 资料库 */
+function renderLibrary() {
+  const s = S.state;
+  $('#libCount').textContent = `已调阅 ${s.count}/${s.limit} 类`;
+  const read = Object.fromEntries(s.accessed.map(a => [a.category_id, a]));
+  const full = s.count >= s.limit;
+  $('#catGrid').innerHTML = S.content.categories.map((c, i) => {
+    const r = read[c.id];
+    const isRead = !!r;
+    const locked = full && !isRead;
+    return `<button class="cat-card ${isRead ? 'read' : ''} ${locked ? 'locked' : ''}" data-cat="${c.id}">
+      <div class="ic">${String(i + 1).padStart(2, '0')}</div>
+      <b>${esc(c.name)}</b>
+      <div class="stage">检查阶段：${esc(c.stage)}</div>
+      <div class="flag">${isRead ? '已调阅 · 可反复查看' : (locked ? '本轮调阅已达上限' : '点击选择')}</div>
+    </button>`;
+  }).join('');
+  $$('#catGrid .cat-card').forEach(btn => btn.onclick = () => {
+    const cid = btn.dataset.cat;
+    if (btn.classList.contains('locked')) { toast('本轮最多调阅三类资料，已到上限；已读资料仍可反复查看。'); return; }
+    if (!S.state.can.browse) { toast('当前阶段不能新增调阅。'); return; }
+    if (read[cid]) openReport(cid); else openReason(cid);
+  });
+  $('#btnFinish').disabled = s.count === 0;
+}
+
+function openReason(cid) {
+  const c = S.content.categories.find(x => x.id === cid);
+  if (!c) return;
+  S.reasonCat = cid;
+  $('#reasonTitle').textContent = '填写查阅依据';
+  $('#reasonCatInfo').textContent = `${c.name}｜检查阶段：${c.stage}`;
+  $('#reasonText').value = '';
+  $('#reasonErr').style.display = 'none';
+  $('#reasonLen').textContent = '';
+  bindDraft($('#reasonText'), 'reason_' + cid);
+  show($('#reasonModal'));
+  setTimeout(() => $('#reasonText').focus(), 60);
+}
+$('#reasonText')?.addEventListener('input', e => {
+  $('#reasonLen').textContent = e.target.value.trim().length + ' 字';
+});
+
+async function submitReason() {
+  const text = $('#reasonText').value.trim();
+  if (!text) {
+    $('#reasonErr').textContent = '请先填写查阅依据，再打开报告。';
+    $('#reasonErr').style.display = 'block'; return;
+  }
+  const btn = $('#btnReasonSave');
+  busy(btn, true, '保存中');
+  try {
+    await api('/api/access/prepare', 'POST', { category_id: S.reasonCat, reason: text });
+    clearDrafts(['reason_' + S.reasonCat]);
+    hide($('#reasonModal'));
+    await refreshState();
+    await openReport(S.reasonCat);
+  } catch (e) {
+    $('#reasonErr').textContent = e.message;
+    $('#reasonErr').style.display = 'block';
+    toast(e.message, 'err');
+  } finally { busy(btn, false); }
+}
+
+/* ------------------------------------------------------------ 报告阅读窗口 */
+async function openReport(cid) {
+  const s = S.state;
+  let rec = s.accessed.find(a => a.category_id === cid);
+  if (!rec) { toast('没有找到该资料的调阅记录', 'err'); return; }
+  S.reportCat = cid; S.reportRec = rec;
+  S.reportImages = rec.images || [];
+  S.reportIndex = 0;
+  $('#reportTitle').textContent = rec.category_name;
+  $('#reportBody').innerHTML = `
+    <div class="report-meta">
+      <span class="chip"><strong>检查阶段</strong> ${esc(rec.stage)}</span>
+      <span class="chip"><strong>检查时间</strong> ${esc(rec.time_label)}</span>
+      <span class="chip"><strong>查看顺序</strong> 第 ${rec.view_order || '—'} 位</span>
+    </div>
+    ${rec.notice ? `<div class="callout warn">${esc(rec.notice)}</div>` : ''}
+    <div class="tabs" id="rpTabs"></div>
+    <div id="rpFigure"></div>
+    <div class="section-title">报告文字版（与原图数值一致）</div>
+    <div id="rpText"></div>
+    <div class="section-title">此前填写的查阅依据（原始记录，不可修改）</div>
+    <div class="locked-note">${esc(rec.reason)}</div>
+    <div class="section-title">追加新的认识（可选）</div>
+    <div id="rpAddList"></div>
+    <div class="row" style="margin-top:8px">
+      <input type="text" id="rpAddInput" placeholder="读完报告后，想补充的一点认识">
+      <button class="btn btn-sm" id="btnAddendum">追加</button>
+    </div>
+    <div class="section-title">这份资料让我注意到……（可选，自动保存）</div>
+    <textarea class="short" id="rpNote" placeholder="笔记不是必填作业，可留空"></textarea>
+    <div class="row" style="margin-top:10px">
+      <button class="btn btn-sm" id="btnReportThinking">思考提示</button>
+      <div class="grow"><div class="thinking" id="rpThinking" style="display:none">
+        ${S.content.thinking_prompts.map(t => `<span>${esc(t)}</span>`).join('')}
+      </div></div>
+    </div>
+    <p class="hint" id="rpNoteState" style="margin-top:6px"></p>`;
+  // tabs
+  const tabs = $('#rpTabs');
+  if (S.reportImages.length > 1) {
+    tabs.innerHTML = S.reportImages.map((im, i) =>
+      `<button class="tab ${i === 0 ? 'on' : ''}" data-i="${i}">${esc(im.label)}</button>`).join('');
+    $$('#rpTabs .tab').forEach(t => t.onclick = () => {
+      S.reportIndex = +t.dataset.i;
+      $$('#rpTabs .tab').forEach(x => x.classList.toggle('on', x === t));
+      updateReportImage(); updateReportText();
+    });
+  } else tabs.innerHTML = '';
+  // 依据 / 追加 / 笔记
+  renderAddendums();
+  $('#btnAddendum').onclick = saveAddendum;
+  $('#btnReportThinking').onclick = () => {
+    const el = $('#rpThinking'); el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+  };
+  const note = $('#rpNote');
+  note.value = rec.note || '';
+  let timer;
+  note.addEventListener('input', () => {
+    clearTimeout(timer);
+    $('#rpNoteState').textContent = '正在保存笔记…';
+    timer = setTimeout(saveNote, 700);
+  });
+  show($('#reportModal'));
+  updateReportImage();
+  updateReportText();
+}
+
+function currentImage() { return S.reportImages[S.reportIndex]; }
+
+function updateReportImage() {
+  const im = currentImage();
+  if (!im) return;
+  const box = $('#rpFigure');
+  box.innerHTML = `
+    <div class="report-figure">
+      <img id="rpImg" src="${IMG_SRC(im.key)}" alt="${esc(im.label)}">
+      <div class="zoom-tip">点击图片可放大查看；手机可双指缩放。本页为教学模拟文字报告。</div>
+    </div>
+    <div id="rpImgErr"></div>`;
+  const el = $('#rpImg');
+  el.onload = () => onImageLoad();
+  el.onerror = () => onImageError();
+  if (el.complete && el.naturalWidth > 0) onImageLoad();
+  el.onclick = () => openLightbox(el.src, im.label);
+}
+
+async function onImageLoad() {
+  if (!S.reportRec || S.reportRec.loaded === 1) return;
+  try {
+    await api('/api/access/confirm', 'POST', { category_id: S.reportCat });
+    S.reportRec.loaded = 1;
+    await refreshState(false);
+    const fresh = S.state.accessed.find(a => a.category_id === S.reportCat);
+    if (fresh) S.reportRec = fresh;
+    updateTop();
+    if (S.view === 'library') renderLibrary();   // 资料库页内计数与卡片状态同步
+    toast('报告已加载，计入本轮调阅', 'ok');
+  } catch (e) { toast('计数同步失败：' + e.message, 'err'); }
+}
+function onImageError() {
+  const box = $('#rpImgErr');
+  if (!box) return;
+  box.innerHTML = `<div class="callout warn">
+    报告图片加载失败，本次<strong>不扣调阅次数</strong>。可以重试，或取消这次选择（原始依据不会保留）。
+    <div class="row" style="margin-top:10px">
+      <button class="btn btn-sm" id="btnImgRetry">重试加载</button>
+      <button class="btn btn-sm" id="btnCancelSel">取消这次选择</button>
+    </div></div>`;
+  $('#btnImgRetry').onclick = updateReportImage;
+  $('#btnCancelSel').onclick = cancelPending;
+}
+async function cancelPending() {
+  try {
+    await api('/api/access/cancel', 'POST', { category_id: S.reportCat });
+    hide($('#reportModal'));
+    await refreshState();
+    toast('已取消这次选择，次数未变化', 'ok');
+  } catch (e) { toast(e.message, 'err'); }
+}
+
+async function updateReportText() {
+  const im = currentImage();
+  if (!im) return;
+  const box = $('#rpText');
+  box.innerHTML = '<p class="muted small">文字版加载中…</p>';
+  try {
+    const d = await api('/api/report/' + encodeURIComponent(im.key));
+    box.innerHTML = d.overridden
+      ? `<div class="r-note">本页文字版已由教师更新。</div><div class="r-plain">${esc(d.plain)}</div>`
+      : renderBlocks(d.blocks);
+  } catch (e) { box.innerHTML = `<div class="callout warn">文字版加载失败：${esc(e.message)}</div>`; }
+}
+function renderBlocks(blocks) {
+  return blocks.map(b => {
+    if (b.type === 'title') return `<div class="r-title">${esc(b.text)}</div>` +
+      (b.sub ? `<div class="r-sub">${esc(b.sub)}</div>` : '');
+    if (b.type === 'kv') return `<div class="r-kv">${b.items.map(([k, v]) =>
+      `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('')}</div>`;
+    if (b.type === 'table') return `<div style="overflow-x:auto"><table class="r-table">
+      <thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
+      <tbody>${b.rows.map(r => `<tr>${r.map((c, i) =>
+        `<td class="${c === '↑' || c === '↓' ? 'up' : ''}">${esc(c)}</td>`).join('')}</tr>`).join('')}
+      </tbody></table></div>`;
+    if (b.type === 'p') return `<p class="small">${esc(b.text)}</p>`;
+    if (b.type === 'note') return `<div class="r-note">${esc(b.text)}</div>`;
+    return '';
+  }).join('');
+}
+function renderAddendums() {
+  const rec = S.state.accessed.find(a => a.category_id === S.reportCat) || S.reportRec;
+  const list = $('#rpAddList');
+  if (!list) return;
+  list.innerHTML = rec.addendums.length
+    ? rec.addendums.map(a => `<div class="r-note">${esc(a.text)} <span class="tiny muted">（${esc(a.created_at)}）</span></div>`).join('')
+    : '<p class="tiny muted" style="margin:0">还没有追加认识。</p>';
+}
+async function saveAddendum() {
+  const el = $('#rpAddInput');
+  const text = (el.value || '').trim();
+  if (!text) { toast('请先写下要追加的认识'); return; }
+  try {
+    await api('/api/access/addendum', 'POST', { category_id: S.reportCat, text });
+    el.value = '';
+    await refreshState(false);
+    const fresh = S.state.accessed.find(a => a.category_id === S.reportCat);
+    if (fresh) S.reportRec = fresh;
+    renderAddendums();
+    toast('已追加，原始依据保持不变', 'ok');
+  } catch (e) { toast(e.message, 'err'); }
+}
+async function saveNote() {
+  try {
+    await api('/api/note', 'POST', { category_id: S.reportCat, text: $('#rpNote').value });
+    $('#rpNoteState').textContent = '笔记已保存';
+    await refreshState(false);
+  } catch (e) { $('#rpNoteState').textContent = '笔记保存失败：' + e.message; }
+}
+
+/* ------------------------------------------------------------ 图片放大 */
+let LB = { scale: 1, tx: 0, ty: 0, dist: 0, dragging: false, sx: 0, sy: 0 };
+function lbApply() {
+  const el = $('#lbImg');
+  el.style.transform = `translate(${LB.tx}px,${LB.ty}px) scale(${LB.scale})`;
+}
+function openLightbox(src, name) {
+  LB = { scale: 1, tx: 0, ty: 0, dist: 0, dragging: false, sx: 0, sy: 0 };
+  $('#lbImg').src = src; $('#lbName').textContent = name || '高清报告';
+  show($('#lightbox')); lbApply();
+}
+function closeLightbox() { hide($('#lightbox')); }
+function lbZoom(d) { LB.scale = Math.min(6, Math.max(0.5, LB.scale + d)); lbApply(); }
+
+/* ------------------------------------------------------------ 课堂交流节点 */
+function recordList(container, withBtn = true) {
+  const s = S.state;
+  const read = s.accessed.filter(a => a.loaded === 1).sort((a, b) => (a.view_order || 0) - (b.view_order || 0));
+  if (!read.length) { container.innerHTML = '<div class="empty">本轮还没有成功调阅的资料。</div>'; return; }
+  container.innerHTML = read.map(a => `
+    <div class="rec-item">
+      <div class="rec-head">
+        <span class="order-badge">${a.view_order}</span>
+        <b>${esc(a.category_name)}</b>
+        <span class="badge info">${esc(a.stage)}</span>
+      </div>
+      <div class="kv"><span class="rec-label">检查时间</span>${esc(a.time_label)}</div>
+      <div class="kv"><span class="rec-label">原始查阅依据</span><b>${esc(a.reason)}</b></div>
+      ${a.addendums.length ? `<div class="kv"><span class="rec-label">追加的认识</span>${a.addendums.map(x => esc(x.text)).join('；')}</div>` : ''}
+      <div class="kv"><span class="rec-label">个人笔记</span>${esc(a.note) || '（未填写）'}</div>
+      ${withBtn ? `<div class="row end" style="margin-top:8px"><button class="btn btn-sm" data-openreport="${a.category_id}">查看这份报告</button></div>` : ''}
+    </div>`).join('');
+  $$('[data-openreport]', container).forEach(b => b.onclick = () => openReport(b.dataset.openreport));
+}
+function renderPause() {
+  recordList($('#pauseSummary'), true);
+  const s = S.state;
+  $('#pauseWait').textContent = s.can.analysis
+    ? '请按教师要求完成课堂交流后，再进入个人分析。'
+    : '请按教师要求暂停，不要提前查看 AI 建议。';
+  const box = $('.wait-box');
+  if (s.can.analysis && !$('#btnPauseGo')) {
+    const b = document.createElement('button');
+    b.className = 'btn btn-primary btn-sm'; b.id = 'btnPauseGo'; b.textContent = '已完成课堂交流，进入个人分析';
+    b.onclick = () => go('analysis');
+    box.querySelector('.row').appendChild(b);
+  }
+}
+
+/* ------------------------------------------------------------ 个人分析 */
+function renderAnalysis() {
+  const s = S.state, a = s.analysis;
+  const form = $('#analysisForm'), saved = $('#analysisSaved');
+  if (a) {
+    form.style.display = 'none'; saved.style.display = 'block';
+    saved.innerHTML = `
+      <div class="callout ok">AI 介入前的分析已保存为原始版本，不会被后续修订覆盖。</div>
+      <table class="summary-table">
+        <tr><th>我目前的判断或主要解释</th><td class="pre">${esc(a.judgement)}</td></tr>
+        <tr><th>最支持这一判断的依据</th><td class="pre">${esc(a.evidence)}</td></tr>
+        <tr><th>仍不能确定、需要核实</th><td class="pre">${esc(a.uncertainty) || '—'}</td></tr>
+        <tr><th>把握程度</th><td>${esc(a.confidence)}</td></tr>
+        <tr><th>保存时间</th><td>${esc(a.saved_at)}</td></tr>
+      </table>
+      <div class="divider"></div>
+      ${s.can.ai
+        ? '<div class="row end"><button class="btn btn-primary" id="btnAnToAi">前往核验 AI 建议</button></div>'
+        : '<div class="callout">请先完成并保存个人分析。</div>'}`;
+    if ($('#btnAnToAi')) $('#btnAnToAi').onclick = () => go('ai');
+  } else {
+    form.style.display = 'block'; saved.style.display = 'none';
+    bindDraft($('#anJudgement'), 'an_judgement');
+    bindDraft($('#anEvidence'), 'an_evidence');
+    bindDraft($('#anUncertainty'), 'an_uncertainty');
+    const savedConf = localStorage.getItem(dkey('an_conf'));
+    if (savedConf) setRadio($('#confidenceBox'), savedConf);
+    if (!s.can.analysis) {
+      $$('#analysisForm input,#analysisForm textarea,#analysisForm button').forEach(el => el.disabled = true);
+    }
+  }
+}
+function setRadio(box, val) {
+  if (!box) return;
+  $$('.radio-card', box).forEach(l => {
+    const on = l.dataset.v === val;
+    l.classList.toggle('on', on);
+    l.querySelector('input').checked = on;
+  });
+}
+function radioValue(box) { const el = $('.radio-card.on', box); return el ? el.dataset.v : ''; }
+
+async function saveAnalysis() {
+  const d = {
+    judgement: $('#anJudgement').value.trim(),
+    evidence: $('#anEvidence').value.trim(),
+    uncertainty: $('#anUncertainty').value.trim(),
+    confidence: radioValue($('#confidenceBox')),
+  };
+  if (!d.judgement || !d.evidence) { toast('请填写目前的判断及最支持这一判断的依据', 'err'); return; }
+  if (!d.confidence) { toast('请选择把握程度', 'err'); return; }
+  const btn = $('#btnSaveAnalysis'); busy(btn, true, '保存中');
+  try {
+    await api('/api/analysis', 'POST', d);
+    clearDrafts(['an_judgement', 'an_evidence', 'an_uncertainty', 'an_conf']);
+    await refreshState();
+    toast('原始分析已保存', 'ok');
+  } catch (e) { toast(e.message, 'err'); }
+  finally { busy(btn, false); }
+}
+
+/* ------------------------------------------------------------ AI 建议 */
+function renderAi() {
+  const s = S.state;
+  const gate = $('#aiGate'), content = $('#aiContent');
+  if (s.ai) {
+    gate.style.display = 'none'; content.style.display = 'block';
+    $('#aiText').textContent = s.ai.content;
+    return;
+  }
+  content.style.display = 'none'; gate.style.display = 'block';
+  if (!s.can.ai) {
+    const teacherOk = s.phase === 'ai';
+    const analysisOk = !!s.analysis;
+    gate.innerHTML = `<div class="wait-box">
+      <div class="pulse">🔒</div>
+      <h3>AI 建议尚未解锁</h3>
+      <p class="muted small">请先保存自己的判断及依据，建议不会提前展示。</p>
+      <div class="row" style="justify-content:center;margin-top:10px">
+        <span class="badge ${analysisOk ? 'ok' : 'warn'}">${analysisOk ? '✓' : '○'} 已保存自己的判断及依据</span>
+        <span class="badge info">离线学习版 · 按课堂节奏自觉进入下一阶段</span>
+      </div>
+      <p class="tiny muted" style="margin-top:14px">保存个人分析后即可查看建议。</p>
+    </div>`;
+  } else {
+    gate.innerHTML = `<div class="wait-box">
+      <div class="pulse">🤖</div>
+      <h3>建议已准备好</h3>
+      <p class="muted small">${esc(S.content.ai_disclaimer)}</p>
+      <button class="btn btn-primary" id="btnViewAi" style="margin-top:10px">查看待核验的AI建议</button>
+    </div>`;
+    $('#btnViewAi').onclick = viewAi;
+  }
+}
+async function viewAi() {
+  const btn = $('#btnViewAi'); busy(btn, true, '生成中');
+  try {
+    await api('/api/ai/view', 'POST', {});
+    await refreshState();
+    toast('已展示本轮对应的 AI 建议', 'ok');
+  } catch (e) { toast(e.message, 'err'); }
+  finally { busy(btn, false); }
+}
+
+/* ------------------------------------------------------------ 核验与修订 */
+function renderRevision() {
+  const s = S.state, r = s.revision;
+  const form = $('#revForm'), saved = $('#revSaved');
+  if (r && s.revision) {
+    form.style.display = 'none'; saved.style.display = 'block';
+    saved.innerHTML = `
+      <div class="callout ok">最终判断已保存；AI 介入前的原始版本仍单独保留。</div>
+      <table class="summary-table">
+        <tr><th>对 AI 建议的回应</th><td>${esc(r.stance)}</td></tr>
+        <tr><th>保留或修正的说明</th><td class="pre">${esc(r.change_reason)}</td></tr>
+        <tr><th>最终判断</th><td class="pre">${esc(r.final_judgement)}</td></tr>
+        <tr><th>下一步评估重点</th><td class="pre">${esc(r.next_step)}</td></tr>
+        <tr><th>保存时间</th><td>${esc(r.saved_at)}</td></tr>
+      </table>
+      <div class="divider"></div>
+      <div class="row end"><button class="btn btn-primary" id="btnRevToArchive">查看我的学习档案</button></div>`;
+    $('#btnRevToArchive').onclick = () => go('archive');
+    // 允许提交前继续修改
+    if (!s.submission) {
+      const b = document.createElement('button');
+      b.className = 'btn btn-sm'; b.textContent = '继续修改最终判断';
+      b.onclick = () => { form.style.display = 'block'; saved.style.display = 'none'; fillRevForm(r); };
+      $('#btnRevToArchive').parentElement.appendChild(b);
+    }
+  } else {
+    form.style.display = 'block'; saved.style.display = 'none';
+    fillRevForm(null);
+  }
+}
+function fillRevForm(r) {
+  bindDraft($('#revReason'), 'rev_reason');
+  bindDraft($('#revFinal'), 'rev_final');
+  bindDraft($('#revNext'), 'rev_next');
+  if (r) {
+    $('#revReason').value = r.change_reason;
+    $('#revFinal').value = r.final_judgement;
+    $('#revNext').value = r.next_step;
+    setRadio($('#stanceBox'), r.stance);
+  } else {
+    const st = localStorage.getItem(dkey('rev_stance'));
+    if (st) setRadio($('#stanceBox'), st);
+  }
+}
+async function saveRevision() {
+  const d = {
+    stance: radioValue($('#stanceBox')),
+    change_reason: $('#revReason').value.trim(),
+    final_judgement: $('#revFinal').value.trim(),
+    next_step: $('#revNext').value.trim(),
+  };
+  if (!d.stance) { toast('请选择对 AI 建议的回应', 'err'); return; }
+  if (!d.change_reason || !d.final_judgement || !d.next_step) {
+    toast('请填写保留或修正的说明、最终判断和下一步评估重点', 'err'); return;
+  }
+  const btn = $('#btnSaveRevision'); busy(btn, true, '保存中');
+  try {
+    await api('/api/revision', 'POST', d);
+    clearDrafts(['rev_reason', 'rev_final', 'rev_next', 'rev_stance']);
+    await refreshState();
+    toast('最终判断已保存', 'ok');
+  } catch (e) { toast(e.message, 'err'); }
+  finally { busy(btn, false); }
+}
+
+/* ------------------------------------------------------------ 学习档案 */
+async function renderArchive() {
+  let arc;
+  try { arc = (await api('/api/archive')).archive; }
+  catch (e) { $('#archiveBody').innerHTML = `<div class="callout warn">档案加载失败：${esc(e.message)}</div>`; return; }
+  const rows = [
+    ['姓名', arc['姓名']], ['学号', arc['学号']], ['班级', arc['班级']], ['组号', arc['组号']],
+    ['已调阅类别数', arc['已调阅类别数']],
+    ['AI介入前的判断（原始）', arc['AI介入前的判断']],
+    ['AI介入前的主要依据', arc['AI介入前的主要依据']],
+    ['AI介入前仍不能确定', arc['AI介入前仍不能确定']],
+    ['AI介入前的把握程度', arc['AI介入前的把握程度']],
+    ['实际查看的AI建议版本', arc['实际查看的AI建议版本']],
+    ['对AI建议的回应', arc['对AI建议的回应']],
+    ['保留或修正的说明', arc['保留或修正的说明']],
+    ['最终判断', arc['最终判断']],
+    ['下一步评估重点', arc['下一步评估重点']],
+    ['提交编号', arc['提交编号'] || '（尚未提交）'],
+    ['提交时间', arc['提交时间'] || '—'],
+  ];
+  $('#archiveBody').innerHTML = `
+    <div class="section-title">调阅资料及原始依据（按查看顺序）</div>
+    <div id="arcRecords"></div>
+    <div class="section-title">作答与修订记录</div>
+    <table class="summary-table">${rows.map(([k, v]) =>
+      `<tr><th>${esc(k)}</th><td class="pre">${esc(v || '—')}</td></tr>`).join('')}</table>
+    <div class="section-title">实际查看的 AI 建议内容</div>
+    <div class="ai-box" style="font-size:13px">${esc(arc['实际查看的AI建议内容'] || '—')}</div>`;
+  recordList($('#arcRecords'), false);
+
+  const done = !!S.state.submission;
+  $('#submitBar').style.display = done ? 'none' : 'block';
+  $('#submitDone').style.display = done ? 'block' : 'none';
+  if (done) {
+    const sub = S.state.submission;
+    $('#submitDone').innerHTML = `
+      <div class="callout ok"><strong>已保存到本机（未同步教师端）。</strong><br>
+      提交编号：<strong>${esc(sub.submit_no)}</strong>　提交时间：${esc(sub.submitted_at)}</div>
+      <div class="row">
+        <button class="btn btn-primary" id="btnDownloadArc">下载个人档案</button>
+        <button class="btn" id="btnPrint">打印保存</button>
+      </div>
+      <p class="hint" style="margin-top:10px">本版本仅保存在此浏览器，请下载或打印档案，并按教师要求另行上传雨课堂。</p>`;
+    $('#btnPrint').onclick = OFFLINE_PRINT;
+    $('#btnDownloadArc').onclick = OFFLINE_DOWNLOAD;
+  } else {
+    $('#submitHint').textContent = S.state.can.submit
+      ? '请核对后确认；记录只保存在本机，不会同步给教师。'
+      : '请先保存最终判断。';
+    $('#btnSubmit').disabled = !S.state.can.submit;
+  }
+}
+async function submitArchive() {
+  if (!confirm('确认生成提交记录？数据仅保存在本机浏览器，不会同步给教师；请下载档案后另行上传雨课堂。')) return;
+  const btn = $('#btnSubmit'); busy(btn, true, '提交中');
+  try {
+    const d = await api('/api/submit', 'POST', {});
+    await refreshState(false);
+    renderArchive();
+    toast('已保存到本机：' + d.submit_no, 'ok');
+  } catch (e) { toast(e.message, 'err'); }
+  finally { busy(btn, false); }
+}
+
+/* ------------------------------------------------------------ 事件绑定 */
+function bindStaticEvents() {
+  $('#btnStart').onclick = () => go(S.token ? 'case' : 'register');
+  $('#btnRegBack').onclick = () => go('home');
+  $('#btnRegSubmit').onclick = doRegister;
+  $('#btnEnterLibrary').onclick = () => go('library');
+  $('#btnReasonSave').onclick = submitReason;
+  $('#btnFinish').onclick = finishBrowsing;
+  $('#btnSaveAnalysis').onclick = saveAnalysis;
+  $('#btnSaveRevision').onclick = saveRevision;
+  $('#btnSubmit').onclick = submitArchive;
+  $('#btnToRevision').onclick = () => go('revision');
+  $('#btnThinking').onclick = () => {
+    const el = $('#thinkingBox'); el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  };
+  ['#btnCaseDrawer', '#btnCaseDrawer2', '#btnCaseDrawer3'].forEach(id => {
+    if ($(id)) $(id).onclick = () => show($('#caseDrawer'));
+  });
+  $('#btnPauseRefresh').onclick = async () => {
+    try { await refreshState(); navigateFromHash(); toast(S.state.can.analysis ? '教师已开放下一阶段' : '教师尚未开放下一阶段'); }
+    catch (e) { toast(e.message, 'err'); }
+  };
+  $$('[data-close]').forEach(b => b.onclick = () => hide($('#' + b.dataset.close)));
+  // 单选卡片
+  ['#confidenceBox', '#stanceBox'].forEach(sel => {
+    const box = $(sel); if (!box) return;
+    $$('.radio-card', box).forEach(l => l.onclick = () => {
+      setRadio(box, l.dataset.v);
+      localStorage.setItem(dkey(sel === '#confidenceBox' ? 'an_conf' : 'rev_stance'), l.dataset.v);
+    });
+  });
+  // 图片放大
+  $('#lbClose').onclick = closeLightbox;
+  $('#lbZoomIn').onclick = () => lbZoom(.4);
+  $('#lbZoomOut').onclick = () => lbZoom(-.4);
+  $('#lbReset').onclick = () => { LB = { scale: 1, tx: 0, ty: 0, dist: 0, dragging: false, sx: 0, sy: 0 }; lbApply(); };
+  const lb = $('#lightbox');
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  lb.addEventListener('wheel', e => { e.preventDefault(); lbZoom(e.deltaY < 0 ? .25 : -.25); }, { passive: false });
+  $('#lbImg').addEventListener('dblclick', () => lbZoom(LB.scale > 1.5 ? -1 : .8));
+  lb.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) LB.dist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    else if (e.touches.length === 1) { LB.dragging = true; LB.sx = e.touches[0].clientX - LB.tx; LB.sy = e.touches[0].clientY - LB.ty; }
+  }, { passive: true });
+  lb.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (e.touches.length === 2 && LB.dist) {
+      const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY);
+      LB.scale = Math.min(6, Math.max(.5, LB.scale * (d / LB.dist))); LB.dist = d; lbApply();
+    } else if (e.touches.length === 1 && LB.dragging) {
+      LB.tx = e.touches[0].clientX - LB.sx; LB.ty = e.touches[0].clientY - LB.sy; lbApply();
+    }
+  }, { passive: false });
+  lb.addEventListener('touchend', () => { LB.dragging = false; LB.dist = 0; });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (!$('#lightbox').hidden) closeLightbox();
+      else $$('.overlay').filter(o => !o.hidden).forEach(o => hide(o));
+    }
+  });
+  // 已读资料回看面板
+  if ($('#btnReadList')) $('#btnReadList').onclick = () => {
+    recordList($('#readListBody'), true);
+    show($('#readListModal'));
+  };
+  window.addEventListener('hashchange', navigateFromHash);
+}
+async function doRegister() {
+  const d = {
+    name: $('#regName').value.trim(), sid: $('#regSid').value.trim(),
+    class_name: $('#regClass').value.trim(), group_no: $('#regGroup').value.trim(),
+  };
+  if (!d.name || !d.sid || !d.class_name || !d.group_no) {
+    $('#regErr').textContent = '请填写姓名、学号、班级和组号。'; $('#regErr').style.display = 'block'; return;
+  }
+  const btn = $('#btnRegSubmit'); busy(btn, true, '登记中');
+  try {
+    const r = await api('/api/student/login', 'POST', d);
+    S.token = r.token; localStorage.setItem('ha_token', r.token); syncCookie();
+    $('#regErr').style.display = 'none';
+    await refreshState(false);
+    go('case');
+    toast('身份已登记，作答仅保存在本机浏览器', 'ok');
+  } catch (e) {
+    $('#regErr').textContent = e.message; $('#regErr').style.display = 'block';
+  } finally { busy(btn, false); }
+}
+async function finishBrowsing() {
+  if (!confirm('结束调阅后将进入课堂交流节点，按教师要求暂停。确认结束？')) return;
+  try {
+    await api('/api/student/finish', 'POST', {});
+    await refreshState(false);
+    go('pause');
+  } catch (e) { toast(e.message, 'err'); }
+}
+
+boot();
+
+</script>
+</body>
+</html>
