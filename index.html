@@ -318,6 +318,9 @@ textarea.short{min-height:70px}
 .offline-strip{background:#fff7e6;border-bottom:1px solid #f0c36d;color:#7a4b00;
  font-size:12.5px;line-height:1.7;padding:9px 20px;text-align:center}
 .offline-strip b{color:#8a4b00}
+.reset-local{margin-left:12px;padding:3px 11px;font-size:12px;line-height:1.6;
+ background:#fff;border:1px solid #d9a441;color:#7a4b00;border-radius:6px;cursor:pointer}
+.reset-local:hover{background:#fff2d9}
 
 </style>
 </head>
@@ -344,6 +347,7 @@ textarea.short{min-height:70px}
 
 <div class="offline-strip">
   <b>课堂学习版·本机保存</b>｜作答保存在当前设备的当前浏览器中。请按教师指令暂停与继续，完成后下载个人档案并上传雨课堂。
+  <button class="reset-local" id="btnResetLocal" onclick="OFFLINE_RESET()">清空本机记录，重新开始</button>
 </div>
 
 
@@ -993,6 +997,23 @@ textarea.short{min-height:70px}
 
     fail('课堂学习版不支持该操作：' + q);
   }
+
+  /* 清空本机记录：删除当前浏览器保存的全部作答，回到未登记状态。
+     只清本机数据，不涉及任何服务端；清空后不可恢复，需要重新作答。 */
+  window.OFFLINE_RESET = function () {
+    var msg = '确定清空本机保存的全部作答记录，重新开始吗？\n\n' +
+      '将删除本机所有学号的调阅记录、查阅依据、笔记、个人判断、AI 核验记录与档案编号，' +
+      '且不可恢复。请先下载需要保留的档案。';
+    if (!window.confirm(msg)) return false;
+    Object.keys(window.localStorage).forEach(function (k) {
+      if (k === 'ha_offline_v1' || k === 'ha_token' || k.indexOf('ha_draft_') === 0) {
+        window.localStorage.removeItem(k);
+      }
+    });
+    window.location.hash = '';
+    window.location.reload();
+    return true;
+  };
 
   var realFetch = window.fetch ? window.fetch.bind(window) : null;
   window.fetch = function (path, opts) {
